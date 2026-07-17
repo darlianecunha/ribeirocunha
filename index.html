@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darliane Cunha - Research &amp; Ideas</title>
+  <meta name="description" content="Darliane Cunha — Researcher in AI, Sustainability and Data Analytics. 20+ years of research. Publications, projects and applied tools." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Darliane Cunha - Research & Ideas" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://darlianecunha.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================================================================
+       DESIGN TOKENS  —  Dark Luminous Elegance
+       Edite as cores aqui se quiser ajustar a paleta do site inteiro.
+    =================================================================== */
+    :root {
+      --bg:        oklch(0.13 0.04 265);   /* navy de fundo            */
+      --bg-alt:    oklch(0.15 0.04 265);   /* navy ligeiramente claro  */
+      --bg-deep:   oklch(0.11 0.04 265);   /* navy do rodapé           */
+      --card:      oklch(0.17 0.04 265);   /* fundo dos cards          */
+      --chip:      oklch(0.22 0.04 265);   /* fundo das tags           */
+      --primary:   oklch(0.72 0.14 195);   /* cyan-teal (destaque)     */
+      --accent:    oklch(0.68 0.16 155);   /* emerald                  */
+      --gold:      oklch(0.82 0.10 85);    /* gold                     */
+      --text:      oklch(0.94 0.005 240);  /* quase branco             */
+      --text-soft: oklch(0.82 0.01 240);   /* corpo de texto           */
+      --text-mut:  oklch(0.60 0.02 240);   /* texto secundário         */
+      --text-dim:  oklch(0.45 0.02 240);   /* texto do rodapé          */
+      --line:      oklch(1 0 0 / 8%);      /* bordas sutis             */
+      --serif: 'Crimson Pro', Georgia, serif;
+      --body:  'Source Sans 3', system-ui, sans-serif;
+      --label: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 980px; margin: 0 auto; }
+
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
+    .section { padding: 96px 0; }
+    .eyebrow { font-family: var(--body); font-size: 1.125rem; color: var(--text-mut); margin-top: 12px; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 2.5rem); color: var(--text); }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: oklch(0.13 0.04 265 / 92%);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; height: 64px; align-items: center; justify-content: flex-end; gap: 24px; font-family: var(--label); }
+    .nav-link { font-size: 0.875rem; font-weight: 500; color: oklch(0.65 0.02 240); transition: color .15s; }
+    .nav-link:hover { color: var(--primary); }
+    .nav-cta {
+      font-size: 0.875rem; font-weight: 500; padding: 6px 16px; border-radius: 999px;
+      background: var(--primary); color: oklch(0.10 0.03 265);
+      box-shadow: 0 0 16px oklch(0.72 0.14 195 / 35%);
+    }
+    .nav-toggle { display: none; }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 128px 0;
+      background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663332536845/TFNta7RZZaFA6rKs3gh2sB/hero-dark-lines-PvoyzN5XtukWZg2eUfeiBF.webp');
+      background-size: cover; background-position: center right;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to right, oklch(0.10 0.04 265 / 96%) 0%, oklch(0.10 0.04 265 / 80%) 50%, oklch(0.10 0.04 265 / 35%) 100%);
+    }
+    .hero-content { position: relative; max-width: 640px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--label); font-size: 0.875rem; font-weight: 500;
+      padding: 6px 16px; border-radius: 999px; margin-bottom: 28px;
+      border: 1px solid oklch(0.72 0.14 195 / 40%);
+      background: oklch(0.72 0.14 195 / 8%); color: var(--primary);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    .hero h1 { font-size: clamp(2.75rem, 7vw, 4.5rem); letter-spacing: -0.02em; margin-bottom: 18px; }
+    .hero-sub { font-size: clamp(1.15rem, 2.5vw, 1.5rem); font-weight: 500; color: var(--primary); margin-bottom: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .pill {
+      font-family: var(--label); font-size: 0.875rem; font-weight: 600; padding: 4px 12px; border-radius: 999px;
+      background: oklch(0.72 0.14 195 / 15%); border: 1px solid oklch(0.72 0.14 195 / 40%);
+      color: oklch(0.90 0.10 195); letter-spacing: 0.02em; text-shadow: 0 0 12px oklch(0.72 0.14 195 / 60%);
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; font-family: var(--label);
+      font-size: 0.95rem; font-weight: 500; padding: 12px 22px; border-radius: 10px; cursor: pointer;
+      border: 1px solid transparent; transition: all .2s;
+    }
+    .btn-primary { background: var(--primary); color: oklch(0.10 0.03 265); box-shadow: 0 0 24px oklch(0.72 0.14 195 / 40%); }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-ghost { border-color: oklch(1 0 0 / 20%); color: oklch(0.90 0.005 240); background: oklch(1 0 0 / 5%); }
+    .btn-ghost:hover { background: oklch(1 0 0 / 10%); }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid { display: grid; grid-template-columns: 1fr 2fr 2fr; gap: 48px; align-items: start; }
+    .avatar {
+      width: 180px; height: 180px; border-radius: 999px; overflow: hidden; flex-shrink: 0;
+      border: 3px solid oklch(0.72 0.14 195 / 60%); box-shadow: 0 0 32px oklch(0.72 0.14 195 / 20%);
+      display: flex; align-items: center; justify-content: center;
+      background: oklch(0.20 0.05 265); font-family: var(--serif); font-size: 3.5rem; color: var(--primary);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text p { color: var(--text-soft); font-size: 1.075rem; margin-bottom: 18px; }
+    .about-meta { margin-top: 24px; display: flex; align-items: center; gap: 8px; font-family: var(--label); color: var(--text-dim); font-size: 0.875rem; }
+    .edu-title { font-size: 1.25rem; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--text); }
+    .edu-item { display: flex; gap: 12px; padding: 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); margin-bottom: 12px; }
+    .edu-flag { font-size: 1.5rem; line-height: 1.2; }
+    .edu-degree { font-family: var(--label); font-weight: 600; font-size: 0.875rem; color: oklch(0.90 0.005 240); }
+    .edu-inst { font-family: var(--label); font-weight: 500; font-size: 0.875rem; color: var(--primary); }
+    .edu-loc { font-family: var(--label); font-size: 0.78rem; color: var(--text-mut); margin-top: 2px; }
+
+    /* ---------- CARDS / GRIDS ---------- */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .icon-box { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .skill-card { padding: 24px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); }
+    .skill-card h3 { font-size: 1.125rem; color: oklch(0.92 0.005 240); }
+    .skill-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: var(--label); font-size: 0.82rem; padding: 4px 12px; border-radius: 999px; background: var(--chip); color: oklch(0.75 0.02 240); border: 1px solid oklch(1 0 0 / 10%); }
+
+    .area-card { padding: 24px; border-radius: 12px; background: var(--bg); }
+    .area-card h3 { font-size: 1.25rem; color: oklch(0.92 0.005 240); margin-bottom: 12px; }
+    .area-card p { font-size: 0.92rem; color: var(--text-mut); line-height: 1.7; }
+
+    /* ---------- PUBLICATIONS ---------- */
+    .pub-head { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .pub-head h3 { font-size: 1.5rem; color: oklch(0.92 0.005 240); }
+    .count {
+      font-family: var(--label); font-size: 0.72rem; padding: 2px 10px; border-radius: 999px;
+      background: oklch(0.72 0.14 195 / 15%); color: var(--primary); border: 1px solid oklch(0.72 0.14 195 / 30%);
+    }
+    .count.green { background: oklch(0.68 0.16 155 / 15%); color: var(--accent); border-color: oklch(0.68 0.16 155 / 30%); }
+    .pub-list { display: grid; gap: 16px; }
+    .pub-card { padding: 20px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); }
+    .pub-card h4 { font-family: var(--body); font-weight: 600; font-size: 1rem; color: oklch(0.90 0.005 240); margin-bottom: 4px; line-height: 1.4; }
+    .pub-meta { font-family: var(--label); font-size: 0.8rem; font-weight: 500; color: var(--primary); margin-bottom: 10px; }
+    .pub-card p { font-size: 0.9rem; color: var(--text-mut); line-height: 1.65; margin-bottom: 12px; }
+    .pub-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; align-items: center; }
+    .idx { font-family: var(--label); font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.02em; }
+    .idx-scopus { background: oklch(0.82 0.10 85 / 14%); color: var(--gold); border: 1px solid oklch(0.82 0.10 85 / 40%); }
+    .idx-wos { background: oklch(0.68 0.16 155 / 14%); color: var(--accent); border: 1px solid oklch(0.68 0.16 155 / 40%); }
+    .doi-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--label); font-size: 0.8rem; font-weight: 500; color: var(--primary); }
+    .doi-link:hover { opacity: .8; }
+    .drive-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; cursor: pointer;
+      font-family: var(--label); font-size: 0.9rem; font-weight: 500; padding: 10px 20px; border-radius: 10px;
+      border: 1px solid oklch(0.72 0.14 195 / 40%); color: var(--primary); background: oklch(0.72 0.14 195 / 8%);
+    }
+    .drive-btn.green { border-color: oklch(0.68 0.16 155 / 40%); color: var(--accent); background: oklch(0.68 0.16 155 / 8%); }
+    .drive-btn:hover { filter: brightness(1.1); }
+
+    /* ---------- PORTFOLIO ---------- */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .filter-btn {
+      font-family: var(--label); font-size: 0.875rem; font-weight: 500; padding: 6px 16px; border-radius: 999px; cursor: pointer;
+      background: var(--card); color: var(--text-mut); border: 1px solid oklch(1 0 0 / 10%); transition: all .2s;
+    }
+    .filter-btn.active { background: var(--primary); color: oklch(0.10 0.03 265); border-color: var(--primary); box-shadow: 0 0 14px oklch(0.72 0.14 195 / 30%); }
+    .filter-btn .n { opacity: .6; font-size: 0.78rem; margin-left: 6px; }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .proj-card {
+      display: flex; flex-direction: column; border-radius: 16px; background: var(--card);
+      overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; border: 1px solid var(--line);
+    }
+    .proj-card:hover { transform: translateY(-3px); }
+    .proj-bar { height: 4px; }
+    .proj-body { padding: 24px; flex: 1; }
+    .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .proj-emoji { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+    .proj-cat { font-family: var(--label); font-size: 0.72rem; font-weight: 500; padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--text-mut); border: 1px solid oklch(1 0 0 / 8%); white-space: nowrap; }
+    .proj-card h3 { font-size: 1.25rem; color: oklch(0.90 0.005 240); margin-bottom: 8px; line-height: 1.3; }
+    .proj-card .desc { font-size: 0.875rem; color: oklch(0.62 0.02 240); line-height: 1.6; margin-bottom: 12px; }
+    .proj-cta {
+      margin: 0 24px 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      font-family: var(--label); font-size: 0.875rem; font-weight: 500; padding: 10px; border-radius: 12px; transition: all .25s;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-row { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); margin-bottom: 12px; transition: border-color .2s; }
+    .contact-row:hover { border-color: oklch(0.72 0.14 195 / 35%); }
+    .contact-label { font-family: var(--label); font-size: 0.72rem; color: var(--text-mut); }
+    .contact-value { font-family: var(--label); font-size: 0.9rem; font-weight: 500; color: oklch(0.85 0.005 240); }
+    .look-card { padding: 16px; border-radius: 12px; background: var(--bg); margin-bottom: 12px; }
+    .look-card .t { font-family: var(--label); font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .look-card .d { font-size: 0.9rem; color: var(--text-mut); line-height: 1.6; }
+
+    /* ---------- FOOTER ---------- */
+    footer { padding: 40px 0; border-top: 1px solid var(--line); background: var(--bg-deep); }
+    .foot-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .foot-name { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: oklch(0.90 0.005 240); }
+    .foot-copy { font-family: var(--label); font-size: 0.875rem; color: var(--text-dim); }
+    .foot-links { display: flex; gap: 20px; font-family: var(--label); }
+    .foot-links a { font-size: 0.78rem; color: var(--text-dim); transition: color .2s; }
+    .foot-links a:hover { color: var(--primary); }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .grid-2, .grid-3, .proj-grid, .contact-grid { grid-template-columns: 1fr; }
+      .section { padding: 64px 0; }
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-links" style="display:flex; align-items:center; gap:24px;">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#expertise">Expertise</a>
+          <a class="nav-link" href="#research">Research Areas</a>
+          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+          <a class="nav-cta" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge"><span class="dot"></span> Open to research &amp; industry collaborations</div>
+        <h1>Darliane Cunha</h1>
+        <p class="hero-sub">
+          Researcher · AI &amp; Sustainability · Data Analytics
+          <span class="pill">20+ Years of Research</span>
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact">✉&nbsp; Get in Touch</a>
+          <a class="btn btn-ghost" href="#publications">📄&nbsp; View Publications</a>
+          <a class="btn btn-ghost" href="#portfolio">▢&nbsp; Portfolio &amp; Demos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about" style="background: var(--bg-alt);">
+    <div class="container wrap">
+      <div class="about-grid">
+        <div>
+          <div class="avatar">
+            <img src="https://darlianecunha.com/manus-storage/profile-photo_e2b4b50c.webp"
+                 alt="Darliane Cunha"
+                 onerror="this.style.display='none'; this.parentNode.textContent='DC';" />
+          </div>
+        </div>
+        <div class="about-text">
+          <h2 class="section-title" style="margin-bottom:24px;">About Me</h2>
+          <p>I am a researcher passionate about technology, data, and sustainability, working at the intersection of AI, digital innovation, and environmental performance. I have led high-impact research at a Brazilian public university, applying data-driven approaches to real-world sustainability challenges.</p>
+          <p>My work spans academic research, applied tool development, and strategic consulting, combining rigorous quantitative methods with practical implementation across port infrastructure, sustainability reporting, and digital transformation.</p>
+          <p style="margin-bottom:0;">I am currently seeking opportunities in research institutions, international organisations, and innovative companies where I can apply my expertise in AI, sustainability analytics, and data-driven decision-making to create lasting environmental and organisational impact.</p>
+          <div class="about-meta">📍 Available for remote and international positions</div>
+        </div>
+        <div>
+          <h3 class="edu-title">🎓 Academic Background</h3>
+          <div id="education"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERTISE ===================== -->
+  <section class="section" id="expertise">
+    <div class="container wrap">
+      <h2 class="section-title">Expertise &amp; Skills</h2>
+      <p class="eyebrow" style="margin-bottom:48px;">A blend of technical proficiency and domain expertise developed across two decades of research and applied work.</p>
+      <div class="grid-2" id="skills"></div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEARCH AREAS ===================== -->
+  <section class="section" id="research" style="background: var(--bg-alt);">
+    <div class="container wrap">
+      <h2 class="section-title">Research Areas</h2>
+      <p class="eyebrow" style="margin-bottom:48px;">My research sits at the convergence of three interconnected domains.</p>
+      <div class="grid-3" id="areas"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PUBLICATIONS ===================== -->
+  <section class="section" id="publications">
+    <div class="container wrap">
+      <h2 class="section-title">Publications</h2>
+      <p class="eyebrow" style="margin-bottom:48px;">Peer-reviewed research and book chapters advancing knowledge in sustainability, AI, and port infrastructure.</p>
+
+      <div style="margin-bottom:56px;">
+        <div class="pub-head">
+          <span style="color:var(--primary); font-size:1.4rem;">📄</span>
+          <h3>Research Papers</h3>
+          <span class="count" id="papers-count"></span>
+        </div>
+        <div class="pub-list" id="papers"></div>
+        <a class="drive-btn" href="https://drive.google.com/open?id=1J3p-6os5CNmqF42r-UtSOXSHSgowB5nF" target="_blank" rel="noopener">↗ Access All Papers on Google Drive</a>
+      </div>
+
+      <div>
+        <div class="pub-head">
+          <span style="color:var(--accent); font-size:1.4rem;">📚</span>
+          <h3>Book Chapters</h3>
+          <span class="count green" id="chapters-count"></span>
+        </div>
+        <div class="pub-list" id="chapters"></div>
+        <a class="drive-btn green" href="https://drive.google.com/open?id=1wq0aOhs8scAmlBhpyqLqaXfSCSlIs4Z4" target="_blank" rel="noopener">↗ Access All Book Chapters on Google Drive</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="section" id="portfolio" style="background: var(--bg-alt);">
+    <div class="container wrap">
+      <div class="badge" style="margin-bottom:20px;">▢ <span id="proj-total"></span> Applied Projects</div>
+      <h2 class="section-title">Portfolio &amp; Demos</h2>
+      <p class="eyebrow" style="margin-bottom:32px; max-width:640px;">A collection of applied tools, dashboards, and AI-powered applications built at the intersection of sustainability, data analytics, and digital innovation.</p>
+      <div class="filters" id="filters"></div>
+      <div class="proj-grid" id="projects"></div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container wrap">
+      <div class="contact-grid">
+        <div>
+          <h2 class="section-title">Get in Touch</h2>
+          <p style="color:var(--text-mut); font-size:1.075rem; margin:16px 0 32px;">I am open to research collaborations, consulting engagements, speaking invitations, and full-time or part-time positions in academia and industry. Feel free to reach out.</p>
+          <div id="contacts"></div>
+        </div>
+        <div>
+          <h3 style="font-size:1.5rem; margin-bottom:24px; color:var(--text);">What I'm Looking For</h3>
+          <div id="looking"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container wrap">
+      <div class="foot-inner">
+        <p class="foot-name">Darliane Cunha</p>
+        <p class="foot-copy">© <span id="year"></span> · Researcher · AI &amp; Sustainability · Data Analytics</p>
+        <div class="foot-links">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       DADOS DO SITE  —  edite os arrays abaixo para atualizar o conteúdo.
+       Para adicionar um artigo/projeto, copie um bloco { ... } e altere.
+  =================================================================== -->
+  <script>
+    /* ---------- FORMAÇÃO ACADÊMICA ---------- */
+    const education = [
+      { degree: "Postdoctoral Fellowship", institution: "Erasmus University Rotterdam", location: "Rotterdam, Netherlands", period: "2024 – 2025", flag: "🇳🇱" },
+      { degree: "Postdoctoral Fellowship", institution: "Autonomous University of Barcelona", location: "Barcelona, Spain", period: "2017 – 2018", flag: "🇪🇸" },
+      { degree: "PhD in Accounting & Finance", institution: "University of Zaragoza", location: "Zaragoza, Spain", period: "2016", flag: "🇪🇸" },
+      { degree: "MSc in Accounting", institution: "University of São Paulo", location: "São Paulo, Brazil", period: "2002", flag: "🇧🇷" },
+    ];
+
+    /* ---------- COMPETÊNCIAS ---------- */
+    const skills = [
+      { category: "Data Science & Analytics", icon: "🧠", color: "var(--primary)", items: ["Python", "Pandas", "Scikit-learn", "Data Visualization", "Statistical Analysis", "ETL / Data Pipelines", "Time Series Analysis"] },
+      { category: "AI & Machine Learning", icon: "📈", color: "var(--accent)", items: ["NLP", "Text Mining", "Computer Vision", "Deep Learning", "Image Classification", "Prompt Engineering"] },
+      { category: "Web Apps & Deployment", icon: "🚀", color: "var(--primary)", items: ["Streamlit", "React", "TypeScript", "Vercel", "GitHub Pages", "API Integration", "9 deployed applications"] },
+      { category: "Sustainability & Domain", icon: "🌐", color: "var(--gold)", items: ["SDG Frameworks", "GRI Standards", "ESG Reporting", "Carbon Accounting", "Maritime Decarbonisation", "EU ETS Maritime", "Indicator Design", "Peer Review · 63 reviews"] },
+      { category: "Research Tools", icon: "🔬", color: "var(--accent)", items: ["Plotly", "VOSviewer", "Jupyter", "LaTeX", "SPSS", "Bibliometric Analysis", "Systematic Review"] },
+    ];
+
+    /* ---------- ÁREAS DE PESQUISA ---------- */
+    const areas = [
+      { title: "Sustainability & Environment", icon: "🌐", color: "var(--gold)", desc: "Addressing real-world environmental challenges through research on sustainability frameworks, SDG implementation, port infrastructure, and decarbonisation strategies across sectors." },
+      { title: "AI & Data Analytics", icon: "🧠", color: "var(--primary)", desc: "Leveraging artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes." },
+      { title: "Digital Innovation", icon: "📈", color: "var(--accent)", desc: "Exploring how digital technologies, from smart sensors to dashboards and AI-powered tools, can transform sustainability reporting, measurement, and organisational practices at scale." },
+    ];
+
+    /* ---------- ARTIGOS (Research Papers) ----------
+       Campos:
+         journal / year  -> periódico e ano
+         tags            -> palavras-chave temáticas
+         index           -> bases onde está indexado: "Scopus" e/ou "Web of Science"
+                            (deixe [] se ainda não estiver vinculado)
+         doi             -> link do DOI
+    */
+    const papers = [
+      { title: "SDG Attributes: A Sustainability Assessment Framework for Brazilian Ports", journal: "Marine Policy", year: "2025", abstract: "Examines how sustainability development goal attributes are disclosed and measured in port sector reporting, proposing a structured framework for SDG-linked performance indicators.", tags: ["SDGs", "Ports", "Reporting"], index: ["Scopus", "Web of Science"], doi: "https://doi.org/10.1016/j.marpol.2025.106841" },
+      { title: "A Bibliometric Analysis of Sustainable Development Goals in the Maritime Industry and Port Sector", journal: "Regional Studies in Marine Science", year: "2024", abstract: "Conducts a systematic bibliometric review of SDG-related academic literature, mapping research trends, key authors, and thematic clusters across disciplines.", tags: ["Bibliometrics", "SDGs", "Literature review"], index: ["Scopus", "Web of Science"], doi: "https://doi.org/10.1016/j.rsma.2023.103319" },
+      { title: "Sustainability Practices for SDGs: A Study of Brazilian Ports", journal: "Environment, Development and Sustainability", year: "2023", abstract: "Provides a comprehensive review of sustainability practices aligned with the SDG framework, synthesising evidence from port sector case studies globally.", tags: ["SDGs", "Review", "Port sector"], index: ["Scopus", "Web of Science"], doi: "https://doi.org/10.1007/s10668-023-03126-y" },
+      { title: "Disclosure of the Sustainable Development Goals in the Maritime Industry and Port Sector", journal: "Gestão e Secretariado", year: "2023", abstract: "Evaluates the quality and completeness of SDG disclosure practices in corporate and institutional sustainability reports, proposing metrics for transparency assessment.", tags: ["Disclosure", "SDGs", "Transparency"], index: ["Web of Science"], doi: "https://doi.org/10.7769/gesec.v14i5.2185" },
+      { title: "Innovations and Smart Technologies at Brazilian Ports", journal: "Gestão e Secretariado", year: "2023", abstract: "Reviews the role of smart technologies, including IoT, AI, and digital twins, in advancing sustainability performance and operational efficiency in modern port systems.", tags: ["Smart tech", "IoT", "Innovation"], index: ["Web of Science"], doi: "https://doi.org/10.7769/gesec.v14i5.2127" },
+      { title: "Photovoltaic Electronic Waste in Brazil: Circular Economy Challenges, Potential and Obstacles", journal: "Social Sciences & Humanities Open", year: "2023", abstract: "Analyses the emerging challenge of photovoltaic panel end-of-life waste in Brazil, evaluating circular economy strategies, regulatory gaps, and material recovery potential in the context of the country's solar energy expansion.", tags: ["Circular economy", "E-waste", "Solar energy"], index: ["Scopus"], doi: "https://doi.org/10.1016/j.ssaho.2023.100456" },
+      { title: "Strategies for Decarbonisation in the Port and Maritime Sector: Key Challenges and Leading Ports", journal: "Revista de Gestão Social e Ambiental", year: "2025", abstract: "Investigates decarbonisation pathways for port and maritime infrastructure, analysing policy instruments, alternative fuels, and operational efficiency measures.", tags: ["Decarbonisation", "Maritime", "Climate"], index: [], doi: "https://doi.org/10.24857/rgsa.v19n4-071" },
+      { title: "Challenges and Strategies for SDG 14 in Brazilian Ports", journal: "Gestão e Secretariado", year: "2024", abstract: "Analyses the challenges of implementing SDG 14 (Life Below Water) within port operations, identifying strategic interventions for marine ecosystem protection.", tags: ["SDG 14", "Marine", "Ports"], index: [], doi: "https://doi.org/10.7769/gesec.v15i12.4593" },
+      { title: "Adoption of Global Sustainability Frameworks in Brazilian Ports: Current Practices and Future Directions", journal: "Revista de Gestão Social e Ambiental", year: "2024", abstract: "Investigates the uptake of international sustainability frameworks (GRI, ISO 14001, EMAS) across Brazilian port authorities, identifying drivers and barriers to adoption.", tags: ["Brazil", "Frameworks", "GRI"], index: [], doi: "https://doi.org/10.24857/rgsa.v18n12-093" },
+      { title: "Sustainable Practices in Brazilian Ports: Aligning with SDGs 9, 13, and 14", journal: "Revista de Gestão Social e Ambiental", year: "2024", abstract: "Maps sustainability practices in Brazilian ports against SDG 9 (Industry & Innovation), SDG 13 (Climate Action), and SDG 14 (Life Below Water), providing a comparative assessment.", tags: ["Brazil", "SDGs", "Best practices"], index: [], doi: "https://doi.org/10.24857/rgsa.v18n11-096" },
+      { title: "Port Sustainability Initiatives: A Study of Brazilian Public Ports", journal: "Gestão e Secretariado", year: "2023", abstract: "Surveys sustainability initiatives implemented by Brazilian public port authorities, identifying leading practices, institutional drivers, and barriers to broader adoption of environmental and social programmes.", tags: ["Ports", "Sustainability initiatives", "Brazil"], index: [], doi: "https://doi.org/10.7769/gesec.v14i8.2558" },
+      { title: "Information about Sustainability in Local Governments in Brazil", journal: "Gestão e Secretariado", year: "2023", abstract: "Examines the quality and scope of sustainability information disclosed by Brazilian local governments, assessing adherence to transparency standards and public accountability frameworks.", tags: ["Local government", "Sustainability", "Brazil"], index: [], doi: "https://doi.org/10.7769/gesec.v14i8.2568" },
+      { title: "Transparency and Sustainability Levels in Port and Terminal Reports", journal: "International Journal of Scientific Management and Tourism", year: "2023", abstract: "Assesses the degree of transparency and sustainability disclosure in annual and sustainability reports published by ports and terminals, identifying gaps and best practices in environmental and social reporting.", tags: ["Transparency", "Ports", "Sustainability reporting"], index: [], doi: "https://doi.org/10.55905/ijsmtv9n4-013" },
+      { title: "Evidenciação das Informações Ambientais: Um Estudo com Empresas do Setor Logístico", journal: "International Journal of Scientific Management and Tourism", year: "2023", abstract: "Investigates the disclosure of environmental information by logistics sector companies in Brazil, evaluating the extent and quality of environmental reporting against recognised frameworks.", tags: ["Environmental disclosure", "Logistics", "Brazil"], index: [], doi: "https://doi.org/10.55905/ijsmtv9n4-010" },
+      { title: "Gênero na Pesquisa em Auditoria: Uma Revisão de Literatura", journal: "International Journal of Scientific Management and Tourism", year: "2023", abstract: "Conducts a systematic literature review on gender representation and dynamics in auditing research, mapping publication trends, authorship patterns, and thematic gaps in the field.", tags: ["Gender", "Auditing", "Literature review"], index: [], doi: "https://doi.org/10.55905/ijsmtv9n3-020" },
+      { title: "The Elaboration Process of the Sustainability Report: A Case Study", journal: "Revista Brasileira de Gestão de Negócios", year: "2018", abstract: "Presents a detailed case study of the sustainability report elaboration process within an organisation, examining stakeholder engagement, data collection methods, and alignment with GRI standards.", tags: ["Sustainability reporting", "GRI", "Case study"], index: [], doi: "https://doi.org/10.7819/rbgn.v0i0.3948" },
+    ];
+
+    /* ---------- CAPÍTULOS DE LIVRO ---------- */
+    const bookChapters = [
+      { title: "Technology as a Catalyst for Sustainable Port Operations in Brazil", journal: "Evidence and Action on the UNSDGs: Reviews and Case Studies", year: "2026", abstract: "Examines how emerging technologies, including AI, IoT, and data analytics, are driving sustainability transitions in Brazilian port operations, with evidence from leading port cases.", tags: ["Technology", "Sustainability", "Brazil"], index: ["Scopus"], doi: "https://doi.org/10.1108/978-1-83662-602-220261004" },
+      { title: "Manifesto ESG Portuário", journal: "Book Chapter", year: "2024", abstract: "Proposes an ESG manifesto for the port sector, articulating principles and commitments for environmental, social, and governance performance in port operations.", tags: ["ESG", "Ports", "Governance"], index: [] },
+      { title: "Tópicos Estratégicos Portuários — Volume 1", journal: "Book Chapter", year: "2023", abstract: "Covers strategic topics in port management, including logistics efficiency, regulatory frameworks, and sustainability integration in Brazilian port policy.", tags: ["Strategy", "Ports", "Brazil"], index: [] },
+      { title: "Tópicos Estratégicos Portuários — Volume 2", journal: "Book Chapter", year: "2024", abstract: "Continues the strategic analysis of port sector challenges, focusing on digital transformation, environmental compliance, and innovation in port governance.", tags: ["Digital", "Innovation", "Governance"], index: [] },
+    ];
+
+    /* ---------- PROJETOS (Portfolio) ----------
+       Campos opcionais: cta2Label + url2 -> botão secundário no card.
+    */
+    const projects = [
+      { emoji: "🌐", title: "Brazil Port Data", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Platform", url: "https://www.brazilportdata.com/",
+        description: "A research and data hub connecting international stakeholders to structured data, analytics and sustainability insights on the Brazilian port sector.",
+        longDescription: "It brings together cargo dashboards (ANTAQ 2010 to 2024), the SDG Port Hub, the CO₂ calculator, AI tools and a curated set of publications. For port authorities, investors, maritime organisations and researchers needing reliable Brazilian port intelligence.",
+        tags: ["Port sector", "Data hub", "Sustainability", "Analytics"] },
+      { emoji: "🚢", title: "Brazil Vessel Call Intelligence", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Platform", url: "https://brazil-vessel-call-intelligence.vercel.app/",
+        description: "An IMO-based analytics platform covering 30,972 port calls and 8,505 unique vessels (2019 to 2025) at Itaguaí, Itaqui and Paranaguá, expanding to the top 20 Brazilian ports.",
+        longDescription: "Five modules: fleet profile, vessel search, port-call analytics, at-berth CO₂ with OPS-avoidable emissions and EU ETS exposure, and data quality. Validated against verified EU MRV data, it is the only public source of harmonised vessel-level emissions data for Brazilian ports.",
+        tags: ["Port analytics", "IMO data", "CO₂ emissions", "EU ETS", "Decarbonisation"] },
+      { emoji: "⚓", title: "BerthCO₂", category: "Port Analytics", accent: "oklch(0.72 0.20 195)", ctaLabel: "Calculate Emissions", url: "https://www.decarbport.com/",
+        description: "Calculates CO₂ emissions from liquid bulk vessels' auxiliary engines during the port stay, following IMO methodology (Fourth IMO GHG Study 2020, MEPC.282(70), MEPC.391(81)).",
+        longDescription: "Enter vessel data, cargo type and berthing times to obtain emissions in tonnes, CO₂ equivalent and a carbon-credit reference value. Supports OPS feasibility assessment and port decarbonisation planning.",
+        tags: ["Decarbonisation", "IMO GHG Study", "Port sector"] },
+      { emoji: "🌬️", title: "Shipping Methane Monitor", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "Explore Emissions Data", url: "https://shipping-methane-monitor.vercel.app/",
+        description: "First fleet-scale analysis of the new greenhouse-gas fields in the EU MRV 2024 dataset: verified CH₄ and N₂O emissions of 14,115 vessels.",
+        longDescription: "It shows that 355 LNG carriers emit 62.6% of all verified methane (the methane-slip signature) and that, fleet-wide, N₂O adds more warming than CH₄.",
+        tags: ["EU MRV", "Methane", "GHG emissions", "LNG", "Decarbonisation"] },
+      { emoji: "💸", title: "Shipping Carbon Costs: EU ETS Ranking", category: "Port Analytics", accent: "oklch(0.82 0.10 85)", ctaLabel: "Explore Rankings", url: "https://shipping-carbon-costs.vercel.app/",
+        description: "Ranks 3,303 shipping companies by their EU ETS carbon cost, built on the verified EU MRV 2024 dataset (12,610 ships, 87.3 Mt of ETS-scoped CO₂).",
+        longDescription: "At €80 per allowance the maritime ETS bill reaches €6.99 billion a year, with the top 10 companies carrying 21.5%. Answers who actually pays for shipping's carbon.",
+        tags: ["EU ETS", "Regulatory analytics", "Decarbonisation"] },
+      { emoji: "🛰️", title: "EU Ports NO₂: Seen From Space", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "View Satellite Data", url: "https://eu-ports-no2.vercel.app/",
+        description: "Uses Copernicus Sentinel-5P satellite data (2024 annual mean) to map NO₂ enhancement over 17 European ports and shipping lanes.",
+        longDescription: "The Strait of Gibraltar lane shows +53.5% more NO₂ than the surrounding sea with no city in sight. An independent, space-based check on ship emission estimates.",
+        tags: ["Remote sensing", "Sentinel-5P", "Air quality"] },
+      { emoji: "🛥️", title: "Vessel Gigantism", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Trends", url: "https://vessel-gigantism.vercel.app/",
+        description: "Traces three decades of the “fewer ships, bigger ships” trend in European ports using official Eurostat data.",
+        longDescription: "Across the EU-27, average container-ship size per call rose 2.3 times while arrivals fell 19%. Select any ports and ship type to compare vessel upsizing over thirty years.",
+        tags: ["Eurostat", "Data analysis", "Maritime statistics"] },
+      { emoji: "🐍", title: "maritimeco2: Python Library", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "View on Zenodo", url: "https://zenodo.org/records/20708090",
+        description: "Open, citable Python library (DOI, tests, v0.1.0 release) estimating OPS-avoidable at-berth CO₂ for liquid bulk vessels, following the IMO Fourth GHG Study 2020 method.",
+        longDescription: "The engine behind BerthCO₂. Published on Zenodo with a citable DOI, full test suite and versioned release, making it reusable and auditable for port decarbonisation research.",
+        tags: ["Python", "Open source", "Emissions modelling"] },
+      { emoji: "🇪🇺", title: "European Port Traffic Explorer", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Traffic Data", url: "https://port-traffic-explorer.vercel.app/",
+        description: "Interactive comparison of annual vessel arrivals at 15 major European ports by ship type and size class, built on official Eurostat statistics (2019 to present).",
+        longDescription: "Select any set of ports and compare fleet mix, size profile and traffic evolution, switching between arrivals and gross tonnage. Replaces manual extraction from the Eurostat database with a one-click comparison.",
+        tags: ["Eurostat", "Port analytics", "Fleet mix", "Maritime statistics"] },
+      { emoji: "🟦", title: "BluePort", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Assistant", url: "https://blue-port-ia.vercel.app/",
+        description: "A computer-vision assistant that classifies port and marine waste into six categories from a single photo, delivered through a live Telegram bot.",
+        longDescription: "Send a photo and receive the category, a confidence score and disposal guidance in seconds, with logs that support compliance reporting. Built with Python, CLIP and the Telegram Bot API; it grew out of an Omdena AI project on the Ganges river.",
+        tags: ["Computer vision", "Sustainability", "Operational workflow"] },
+      { emoji: "📊", title: "SDG Attributes", category: "Sustainability & SDGs", accent: "oklch(0.68 0.16 155)", ctaLabel: "View Indicators", url: "https://sdgporthub.com/", cta2Label: "SDG Ports Platform", url2: "https://sdgports.manus.space/",
+        description: "A peer-reviewed sustainability assessment framework for ports: 84 indicators across 20 thematic areas aligned with eight SDGs, based on Cunha et al. (2025), Marine Policy.",
+        longDescription: "The interactive simulation tool turns the framework into an instant self-assessment: score each indicator from 1 to 4 and read the overall score and performance level in real time, in English or Portuguese.",
+        tags: ["Indicators", "SDGs", "Data management"] },
+      { emoji: "🎯", title: "Radar ODS: Municípios Sustentáveis", category: "Sustainability & SDGs", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Demo", url: "https://radarods.vercel.app/", cta2Label: "View Proposal", url2: "https://propostaufmacidadessustentaveis.vercel.app/",
+        description: "An interactive simulator of the Municipal Sustainability Index (ISM) for municipalities in Maranhão, Brazil, across SDGs 7, 11, 13, 14 and 17.",
+        longDescription: "It converts official open data (IBGE, ANEEL, CEMADEN, MapBiomas and others) into maturity scores from 1 to 5 and shows how indicator improvements change the index, including which funding calls each level unlocks. Developed at UFMA, Portuguese interface.",
+        tags: ["SDGs", "Municipal sustainability", "ISM methodology", "Open data", "AI"] },
+      { emoji: "🔍", title: "PDFWords: Text Mining for VOSviewer", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://text-umber-delta.vercel.app/",
+        description: "Turns a set of PDFs into a word co-occurrence network for VOSviewer Online, detecting the most frequent terms automatically.",
+        longDescription: "Text is extracted entirely in the browser, with Portuguese and English stopwords removed and nothing sent to a server. Automates the creation of co-occurrence maps for bibliometric and literature reviews.",
+        tags: ["Text Mining", "Bibliometrics", "VOSviewer", "NLP"] },
+      { emoji: "📝", title: "PDFTerms: Controlled Vocabulary for VOSviewer", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://textmining2.vercel.app/",
+        description: "A directed text-mining tool with a controlled vocabulary: you define the keywords and the app counts their occurrences and co-occurrences across your PDFs.",
+        longDescription: "Supports grouped synonyms, compound terms, wildcards and thematic categories. It exports a VOSviewer-ready network and complements PDFWords, which detects terms automatically. All processing runs locally in the browser.",
+        tags: ["Text Mining", "VOSviewer", "Controlled vocabulary", "Bibliometrics", "NLP"] },
+      { emoji: "🔗", title: "ResearchMatch with ORCID", category: "Research & Text Mining", accent: "oklch(0.68 0.16 155)", ctaLabel: "Try the Tool", url: "https://researchmatch-chi.vercel.app/",
+        description: "Finds new potential collaborators aligned with any ORCID profile.",
+        longDescription: "Matching uses topic-vector (cosine) similarity over the profile's OpenAlex topics, and existing co-authors are excluded, so the results are genuinely new contacts. Open data, no paywalls or institutional access required.",
+        tags: ["ORCID", "OpenAlex", "Collaboration", "Open data"] },
+      { emoji: "🔬", title: "ResearchMatch for Topic", category: "Research & Text Mining", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Tool", url: "https://researchmatchfortopic-znnz.vercel.app/",
+        description: "Finds the leading researchers in any field.",
+        longDescription: "It searches paper titles and abstracts through OpenAlex, detects the dominant topics and ranks authors by a balance of subject relevance and scholarly impact (h-index). Identifies the key authors in a topic in seconds, replacing slow manual literature scanning.",
+        tags: ["OpenAlex", "Bibliometrics", "Expert discovery", "Open data"] },
+    ];
+
+    /* ---------- CONTATOS ---------- */
+    const contacts = [
+      { href: "mailto:darlianerc@gmail.com", label: "Email", value: "darlianerc@gmail.com", icon: "✉", color: "var(--primary)" },
+      { href: "https://www.linkedin.com/in/darlianecunha/", label: "LinkedIn", value: "linkedin.com/in/darlianecunha", icon: "in", color: "var(--primary)" },
+      { href: "https://github.com/darlianecunha", label: "GitHub", value: "github.com/darlianecunha", icon: "GH", color: "var(--accent)" },
+      { href: "https://scholar.google.es/citations?hl=pt-BR&pli=1&user=BGRlXo0AAAAJ", label: "Google Scholar", value: "scholar.google.es/citations", icon: "🎓", color: "var(--accent)" },
+      { href: "https://orcid.org/0000-0003-2548-1237", label: "ORCID", value: "orcid.org/0000-0003-2548-1237", icon: "🔬", color: "var(--gold)" },
+    ];
+
+    /* ---------- O QUE PROCURO ---------- */
+    const looking = [
+      { title: "Research Positions", desc: "Postdoctoral, senior researcher, or research scientist roles in sustainability, AI, or data analytics.", color: "var(--primary)" },
+      { title: "Industry Collaborations", desc: "Consulting, advisory, or project-based work with organisations tackling sustainability and digital transformation.", color: "var(--accent)" },
+      { title: "International Projects", desc: "EU-funded research projects, UN initiatives, or cross-border programmes in environmental performance.", color: "var(--gold)" },
+    ];
+
+    /* ===================================================================
+       RENDERIZAÇÃO  —  não precisa editar daqui para baixo.
+    =================================================================== */
+    const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
+    const chipRow = (tags) => `<div class="chips">${tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>`;
+
+    // Education
+    document.getElementById("education").innerHTML = education.map(e => `
+      <div class="edu-item">
+        <span class="edu-flag">${e.flag}</span>
+        <div>
+          <p class="edu-degree">${esc(e.degree)}</p>
+          <p class="edu-inst">${esc(e.institution)}</p>
+          <p class="edu-loc">${esc(e.location)} · ${esc(e.period)}</p>
+        </div>
+      </div>`).join("");
+
+    // Skills
+    document.getElementById("skills").innerHTML = skills.map(s => `
+      <div class="skill-card">
+        <div class="skill-head">
+          <div class="icon-box" style="background:color-mix(in oklch, ${s.color} 12%, transparent); color:${s.color};">${s.icon}</div>
+          <h3>${esc(s.category)}</h3>
+        </div>
+        ${chipRow(s.items)}
+      </div>`).join("");
+
+    // Research areas
+    document.getElementById("areas").innerHTML = areas.map(a => `
+      <div class="area-card" style="border:1px solid color-mix(in oklch, ${a.color} 25%, transparent);">
+        <div class="icon-box" style="background:color-mix(in oklch, ${a.color} 15%, transparent); color:${a.color}; margin-bottom:16px;">${a.icon}</div>
+        <h3>${esc(a.title)}</h3>
+        <p>${esc(a.desc)}</p>
+      </div>`).join("");
+
+    // Publications
+    const idxBadge = (name) => {
+      const cls = name === "Scopus" ? "idx idx-scopus" : "idx idx-wos";
+      return `<span class="${cls}">${esc(name)}</span>`;
+    };
+    const pubCard = (p) => `
+      <div class="pub-card">
+        <h4>${esc(p.title)}</h4>
+        ${p.journal ? `<p class="pub-meta">${esc(p.journal)}${p.year ? ` · ${esc(p.year)}` : ""}</p>` : ""}
+        <p>${esc(p.abstract)}</p>
+        <div class="pub-tags">
+          ${p.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}
+          ${(p.index || []).map(idxBadge).join("")}
+        </div>
+        ${p.doi ? `<a class="doi-link" href="${esc(p.doi)}" target="_blank" rel="noopener">↗ View on DOI</a>` : ""}
+      </div>`;
+    document.getElementById("papers").innerHTML = papers.map(pubCard).join("");
+    document.getElementById("chapters").innerHTML = bookChapters.map(pubCard).join("");
+    document.getElementById("papers-count").textContent = papers.length + " articles";
+    document.getElementById("chapters-count").textContent = bookChapters.length + " chapters";
+
+    // Portfolio
+    const projGrid = document.getElementById("projects");
+    function renderProjects(cat) {
+      const list = cat === "All" ? projects : projects.filter(p => p.category === cat);
+      projGrid.innerHTML = list.map(p => `
+        <div class="proj-card" style="border-color:color-mix(in oklch, ${p.accent} 20%, transparent);"
+             onmouseover="this.style.borderColor='color-mix(in oklch, ${p.accent} 50%, transparent)'; this.style.boxShadow='0 8px 40px color-mix(in oklch, ${p.accent} 18%, transparent)';"
+             onmouseout="this.style.borderColor='color-mix(in oklch, ${p.accent} 20%, transparent)'; this.style.boxShadow='none';">
+          <div class="proj-bar" style="background:linear-gradient(90deg, ${p.accent}, transparent);"></div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-emoji" style="background:color-mix(in oklch, ${p.accent} 15%, transparent); border:1px solid color-mix(in oklch, ${p.accent} 30%, transparent);">${p.emoji}</div>
+              <span class="proj-cat">${esc(p.category)}</span>
+            </div>
+            <h3>${esc(p.title)}</h3>
+            <p class="desc">${esc(p.description)}</p>
+            <p class="desc">${esc(p.longDescription)}</p>
+            <div class="chips">${p.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+          </div>
+          <a class="proj-cta" href="${esc(p.url)}" target="_blank" rel="noopener"
+             style="${p.url2 ? "margin-bottom:8px;" : ""}border:1px solid color-mix(in oklch, ${p.accent} 25%, transparent); color:${p.accent}; background:color-mix(in oklch, ${p.accent} 8%, transparent);"
+             onmouseover="this.style.background='${p.accent}'; this.style.color='oklch(0.10 0.03 265)';"
+             onmouseout="this.style.background='color-mix(in oklch, ${p.accent} 8%, transparent)'; this.style.color='${p.accent}';">↗ ${esc(p.ctaLabel)}</a>
+          ${p.url2 ? `<a class="proj-cta" href="${esc(p.url2)}" target="_blank" rel="noopener"
+             style="margin-top:0; border:1px solid color-mix(in oklch, ${p.accent} 25%, transparent); color:var(--text-soft); background:transparent;"
+             onmouseover="this.style.borderColor='${p.accent}'; this.style.color='${p.accent}';"
+             onmouseout="this.style.borderColor='color-mix(in oklch, ${p.accent} 25%, transparent)'; this.style.color='var(--text-soft)';">↗ ${esc(p.cta2Label)}</a>` : ""}
+        </div>`).join("");
+    }
+    const cats = ["All", "Port Analytics", "Sustainability & SDGs", "Research & Text Mining"];
+    document.getElementById("filters").innerHTML = cats.map((c, i) => {
+      const n = c === "All" ? "" : `<span class="n">${projects.filter(p => p.category === c).length}</span>`;
+      return `<button class="filter-btn${i === 0 ? " active" : ""}" data-cat="${esc(c)}">${esc(c)}${n}</button>`;
+    }).join("");
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderProjects(btn.dataset.cat);
+    });
+    document.getElementById("proj-total").textContent = projects.length;
+    renderProjects("All");
+
+    // Contacts
+    document.getElementById("contacts").innerHTML = contacts.map(c => `
+      <a class="contact-row" href="${esc(c.href)}" ${c.href.startsWith("mailto") ? "" : 'target="_blank" rel="noopener"'}>
+        <div class="icon-box" style="background:color-mix(in oklch, ${c.color} 15%, transparent); color:${c.color};">${esc(c.icon)}</div>
+        <div>
+          <p class="contact-label">${esc(c.label)}</p>
+          <p class="contact-value">${esc(c.value)}</p>
+        </div>
+      </a>`).join("");
+
+    // Looking for
+    document.getElementById("looking").innerHTML = looking.map(l => `
+      <div class="look-card" style="border:1px solid color-mix(in oklch, ${l.color} 20%, transparent);">
+        <p class="t" style="color:${l.color};">${esc(l.title)}</p>
+        <p class="d">${esc(l.desc)}</p>
+      </div>`).join("");
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
