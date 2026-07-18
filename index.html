@@ -494,7 +494,7 @@
         description: "A computer-vision assistant that classifies port and marine waste into six categories from a single photo, delivered through a live Telegram bot.",
         longDescription: "Send a photo and receive the category, a confidence score and disposal guidance in seconds, with logs that support compliance reporting. Built with Python, CLIP and the Telegram Bot API; it grew out of an Omdena AI project on the Ganges river.",
         tags: ["Computer vision", "Sustainability", "Operational workflow"] },
-      { emoji: "📊", title: "SDG Attributes", category: "Sustainability & SDGs", accent: "oklch(0.68 0.16 155)", ctaLabel: "View Indicators", url: "https://sdgporthub.com/", cta2Label: "SDG Ports Platform", url2: "https://sdgports.manus.space/",
+      { emoji: "📊", title: "SDG Attributes", category: "Sustainability & SDGs", accent: "oklch(0.68 0.16 155)", ctaLabel: "View Indicators", url: "https://sdg-port-hub-sable.vercel.app/",
         description: "A peer-reviewed sustainability assessment framework for ports: 84 indicators across 20 thematic areas aligned with eight SDGs, based on Cunha et al. (2025), Marine Policy.",
         longDescription: "The interactive simulation tool turns the framework into an instant self-assessment: score each indicator from 1 to 4 and read the overall score and performance level in real time, in English or Portuguese.",
         tags: ["Indicators", "SDGs", "Data management"] },
@@ -609,6 +609,7 @@
             <h3>${esc(p.title)}</h3>
             <p class="desc">${esc(p.description)}</p>
             <p class="desc">${esc(p.longDescription)}</p>
+            <p class="desc">Explore the tools in detail <a href="https://cunha-data-science.vercel.app/" target="_blank" rel="noopener" style="color:${p.accent}; text-decoration:underline;">cunha-data-science.vercel.app</a></p>
             <div class="chips">${p.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
           </div>
           <a class="proj-cta" href="${esc(p.url)}" target="_blank" rel="noopener"
