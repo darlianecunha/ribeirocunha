@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Darliane Cunha - Research &amp; Ideas</title>
-  <meta name="description" content="Darliane Cunha — Researcher in AI, Sustainability and Data Analytics. 20+ years of research. Publications, projects and applied tools." />
+  <meta name="description" content="Darliane Cunha, Researcher in AI, Sustainability and Data Analytics. 20+ years of research, award-winning work on port decarbonisation and SDG assessment. Publications, projects and applied tools." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Darliane Cunha - Research & Ideas" />
@@ -80,15 +80,21 @@
     }
 
     /* ---------- HERO ---------- */
+    /* Fundo do hero gerado em CSS: nada de imagem externa, portanto nunca falha
+       ao carregar. Para voltar a usar uma imagem, acrescente background-image aqui. */
     .hero {
       position: relative; overflow: hidden;
       padding: 128px 0;
-      background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663332536845/TFNta7RZZaFA6rKs3gh2sB/hero-dark-lines-PvoyzN5XtukWZg2eUfeiBF.webp');
-      background-size: cover; background-position: center right;
+      background-color: oklch(0.11 0.04 265);
+      background-image:
+        radial-gradient(60% 90% at 88% 15%, oklch(0.72 0.14 195 / 22%) 0%, transparent 60%),
+        radial-gradient(50% 80% at 70% 95%, oklch(0.68 0.16 155 / 14%) 0%, transparent 65%),
+        repeating-linear-gradient(115deg, oklch(1 0 0 / 4%) 0px, oklch(1 0 0 / 4%) 1px, transparent 1px, transparent 22px);
+      background-size: cover, cover, auto;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
-      background: linear-gradient(to right, oklch(0.10 0.04 265 / 96%) 0%, oklch(0.10 0.04 265 / 80%) 50%, oklch(0.10 0.04 265 / 35%) 100%);
+      background: linear-gradient(to right, oklch(0.10 0.04 265 / 92%) 0%, oklch(0.10 0.04 265 / 70%) 50%, oklch(0.10 0.04 265 / 20%) 100%);
     }
     .hero-content { position: relative; max-width: 640px; }
     .badge {
@@ -121,12 +127,15 @@
     /* ---------- ABOUT ---------- */
     .about-grid { display: grid; grid-template-columns: 1fr 2fr 2fr; gap: 48px; align-items: start; }
     .avatar {
+      position: relative;
       width: 180px; height: 180px; border-radius: 999px; overflow: hidden; flex-shrink: 0;
       border: 3px solid oklch(0.72 0.14 195 / 60%); box-shadow: 0 0 32px oklch(0.72 0.14 195 / 20%);
       display: flex; align-items: center; justify-content: center;
       background: oklch(0.20 0.05 265); font-family: var(--serif); font-size: 3.5rem; color: var(--primary);
     }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    /* Iniciais ficam atrás da foto: se a imagem não carregar, elas aparecem no lugar. */
+    .avatar-initials { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; letter-spacing: 0.02em; }
+    .avatar img { position: relative; width: 100%; height: 100%; object-fit: cover; background: oklch(0.20 0.05 265); }
     .about-text p { color: var(--text-soft); font-size: 1.075rem; margin-bottom: 18px; }
     .about-meta { margin-top: 24px; display: flex; align-items: center; gap: 8px; font-family: var(--label); color: var(--text-dim); font-size: 0.875rem; }
     .edu-title { font-size: 1.25rem; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--text); }
@@ -135,6 +144,26 @@
     .edu-degree { font-family: var(--label); font-weight: 600; font-size: 0.875rem; color: oklch(0.90 0.005 240); }
     .edu-inst { font-family: var(--label); font-weight: 500; font-size: 0.875rem; color: var(--primary); }
     .edu-loc { font-family: var(--label); font-size: 0.78rem; color: var(--text-mut); margin-top: 2px; }
+
+    /* ---------- RECOGNITION ---------- */
+    .recognition {
+      margin-top: 40px; padding: 18px 20px; border-radius: 12px;
+      background: var(--bg); border: 1px solid oklch(0.82 0.10 85 / 25%);
+    }
+    .rec-label {
+      font-family: var(--label); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .rec-item { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; font-family: var(--label); font-size: 0.85rem; line-height: 1.55; }
+    .rec-item + .rec-item { border-top: 1px solid var(--line); }
+    .rec-year { color: var(--gold); font-weight: 600; font-size: 0.78rem; white-space: nowrap; flex: 0 0 84px; }
+    .rec-text { color: var(--text-mut); }
+    .rec-text b { color: oklch(0.90 0.005 240); font-weight: 600; }
+    @media (max-width: 520px) {
+      .rec-item { flex-direction: column; gap: 2px; }
+      .rec-year { flex: none; }
+    }
 
     /* ---------- CARDS / GRIDS ---------- */
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -276,9 +305,11 @@
       <div class="about-grid">
         <div>
           <div class="avatar">
+            <span class="avatar-initials" aria-hidden="true">DC</span>
             <img src="profile-photo.webp"
                  alt="Darliane Cunha"
-                 onerror="this.onerror=null; this.src='https://darlianecunha.com/manus-storage/profile-photo_e2b4b50c.webp';" />
+                 width="180" height="180" decoding="async"
+                 onerror="this.style.display='none';" />
           </div>
         </div>
         <div class="about-text">
@@ -292,6 +323,10 @@
           <h3 class="edu-title">🎓 Academic Background</h3>
           <div id="education"></div>
         </div>
+      </div>
+      <div class="recognition">
+        <p class="rec-label">🏆 Recognition</p>
+        <div id="awards"></div>
       </div>
     </div>
   </section>
@@ -413,6 +448,18 @@
       { title: "Sustainability & Environment", icon: "🌐", color: "var(--gold)", desc: "Addressing real-world environmental challenges through research on sustainability frameworks, SDG implementation, port infrastructure, and decarbonisation strategies across sectors." },
       { title: "AI & Data Analytics", icon: "🧠", color: "var(--primary)", desc: "Leveraging artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes." },
       { title: "Digital Innovation", icon: "📈", color: "var(--accent)", desc: "Exploring how digital technologies, from smart sensors to dashboards and AI-powered tools, can transform sustainability reporting, measurement, and organisational practices at scale." },
+    ];
+
+    /* ---------- RECONHECIMENTO (Awards) ----------
+       Ordem por relevância temática, não cronológica.
+    */
+    const awards = [
+      { year: "2026", title: "1st Place, Academic Production",
+        org: "Porto do Itaqui Prize (Inova Itaqui), EMAP Port Authority with FAPEMA and SECTI" },
+      { year: "2025", title: "1st Place, Best Paper",
+        org: "3rd National Congress Integra Portos (CNIT), Brazil, on at-berth CO₂ emissions at the Port of Itaqui" },
+      { year: "2025–2026", title: "Outstanding Researcher Award",
+        org: "Federal University of Maranhão (UFMA)" },
     ];
 
     /* ---------- ARTIGOS (Research Papers) ----------
@@ -551,6 +598,13 @@
           <p class="edu-inst">${esc(e.institution)}</p>
           <p class="edu-loc">${esc(e.location)} · ${esc(e.period)}</p>
         </div>
+      </div>`).join("");
+
+    // Awards
+    document.getElementById("awards").innerHTML = awards.map(a => `
+      <div class="rec-item">
+        <span class="rec-year">${esc(a.year)}</span>
+        <span class="rec-text"><b>${esc(a.title)}</b> · ${esc(a.org)}</span>
       </div>`).join("");
 
     // Skills
