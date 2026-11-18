@@ -250,6 +250,7 @@
     .proj-body { padding: 24px; flex: 1; }
     .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
     .proj-emoji { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+    .proj-trl { font-family: var(--label); font-size: 0.68rem; font-weight: 600; letter-spacing: .02em; padding: 2px 9px; border-radius: 999px; margin-left: 6px; background: color-mix(in oklch, var(--gold) 14%, transparent); color: var(--gold); border: 1px solid color-mix(in oklch, var(--gold) 35%, transparent); white-space: nowrap; }
     .proj-cat { font-family: var(--label); font-size: 0.72rem; font-weight: 500; padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--text-mut); border: 1px solid oklch(1 0 0 / 8%); white-space: nowrap; }
     .proj-card h3 { font-size: 1.25rem; color: oklch(0.90 0.005 240); margin-bottom: 8px; line-height: 1.3; }
     .proj-card .desc { font-size: 0.875rem; color: oklch(0.62 0.02 240); line-height: 1.6; margin-bottom: 12px; }
@@ -727,6 +728,7 @@
       <div class="badge" style="margin-bottom:20px;">▢ <span id="proj-total">18</span> Applied Projects</div>
       <h2 class="section-title">Portfolio &amp; Demos</h2>
       <p class="eyebrow" style="margin-bottom:32px; max-width:640px;">A collection of applied tools, dashboards, and AI-powered applications built at the intersection of sustainability, data analytics, and digital innovation.</p>
+      <p class="eyebrow" style="margin-top:-20px; margin-bottom:28px; max-width:640px; font-size:0.8rem; opacity:.8;">TRL = Technology Readiness Level (EU scale, 1 to 9). TRL 5 to 6: validated prototype or public demonstrator; TRL 7: tool in use by external users, with validated or peer-reviewed methodology.</p>
       <div class="filters" id="filters"><button class="filter-btn active" data-cat="All">All</button><button class="filter-btn" data-cat="Port Analytics">Port Analytics<span class="n">12</span></button><button class="filter-btn" data-cat="Sustainability &amp; SDGs">Sustainability &amp; SDGs<span class="n">2</span></button><button class="filter-btn" data-cat="Research &amp; Text Mining">Research &amp; Text Mining<span class="n">4</span></button></div>
       <div class="proj-grid" id="projects">
         <div class="proj-card" style="border-color:color-mix(in oklch, oklch(0.65 0.18 230) 20%, transparent);" onmouseover="this.style.borderColor='color-mix(in oklch, oklch(0.65 0.18 230) 50%, transparent)'; this.style.boxShadow='0 8px 40px color-mix(in oklch, oklch(0.65 0.18 230) 18%, transparent)';" onmouseout="this.style.borderColor='color-mix(in oklch, oklch(0.65 0.18 230) 20%, transparent)'; this.style.boxShadow='none';">
@@ -734,7 +736,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.65 0.18 230) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.65 0.18 230) 30%, transparent);">🌐</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>Brazil Port Data</h3>
             <p class="desc">A research and data hub connecting international stakeholders to structured data, analytics and sustainability insights on the Brazilian port sector.</p>
@@ -749,7 +751,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">🚢</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>Brazil Vessel Call Intelligence</h3>
             <p class="desc">An IMO-based analytics platform covering 30,972 port calls and 8,505 unique vessels (2019 to 2025) at Itaguaí, Itaqui and Paranaguá, expanding to the top 20 Brazilian ports.</p>
@@ -764,7 +766,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.20 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.20 195) 30%, transparent);">⚓</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>BerthCO₂</h3>
             <p class="desc">Calculates CO₂ emissions from liquid bulk vessels' auxiliary engines during the port stay, following IMO methodology (Fourth IMO GHG Study 2020, MEPC.282(70), MEPC.391(81)).</p>
@@ -779,7 +781,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.68 0.16 155) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.68 0.16 155) 30%, transparent);">🌬️</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>Shipping Methane Monitor</h3>
             <p class="desc">First fleet-scale analysis of the new greenhouse-gas fields in the EU MRV 2024 dataset: verified CH₄ and N₂O emissions of 14,115 vessels.</p>
@@ -794,7 +796,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.82 0.10 85) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 30%, transparent);">💸</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>Shipping Carbon Costs: EU ETS Ranking</h3>
             <p class="desc">Ranks 3,303 shipping companies by their EU ETS carbon cost, built on the verified EU MRV 2024 dataset (12,610 ships, 87.3 Mt of ETS-scoped CO₂).</p>
@@ -809,7 +811,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.65 0.18 230) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.65 0.18 230) 30%, transparent);">🛰️</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>EU Ports NO₂: Seen From Space</h3>
             <p class="desc">Uses Copernicus Sentinel-5P satellite data (2024 annual mean) to map NO₂ enhancement over 17 European ports and shipping lanes.</p>
@@ -824,7 +826,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">🛥️</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>Vessel Gigantism</h3>
             <p class="desc">Traces three decades of the “fewer ships, bigger ships” trend in European ports using official Eurostat data.</p>
@@ -839,7 +841,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.68 0.16 155) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.68 0.16 155) 30%, transparent);">🐍</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>maritimeco2: Python Library</h3>
             <p class="desc">Open, citable Python library (DOI, tests, v0.1.0 release) estimating OPS-avoidable at-berth CO₂ for liquid bulk vessels, following the IMO Fourth GHG Study 2020 method.</p>
@@ -854,7 +856,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">🤖</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 5</span>
             </div>
             <h3>port-emissions-mcp: Claude MCP Server</h3>
             <p class="desc">A Model Context Protocol (MCP) server that lets Claude answer questions about 247 Brazilian port installations and estimate at-berth CO₂, citing the source and method behind every number.</p>
@@ -869,7 +871,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.82 0.10 85) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 30%, transparent);">📦</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">Open data · ODbL</span>
             </div>
             <h3>Brazil Port Data: Open Dataset</h3>
             <p class="desc">Consolidated ANTAQ port statistics for 247 Brazilian installations, 2010 to 2026: annual cargo by navigation type, berthings and mean port times, with a citable DOI.</p>
@@ -884,7 +886,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.65 0.18 230) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.65 0.18 230) 30%, transparent);">🇪🇺</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>European Port Traffic Explorer</h3>
             <p class="desc">Interactive comparison of annual vessel arrivals at 15 major European ports by ship type and size class, built on official Eurostat statistics (2019 to present).</p>
@@ -899,7 +901,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">🟦</div>
-              <span class="proj-cat">Port Analytics</span>
+              <span class="proj-cat">Port Analytics</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 5</span>
             </div>
             <h3>BluePort</h3>
             <p class="desc">A computer-vision assistant that classifies port and marine waste into six categories from a single photo, delivered through a live Telegram bot.</p>
@@ -914,7 +916,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.68 0.16 155) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.68 0.16 155) 30%, transparent);">📊</div>
-              <span class="proj-cat">Sustainability &amp; SDGs</span>
+              <span class="proj-cat">Sustainability &amp; SDGs</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>SDG Attributes</h3>
             <p class="desc">A peer-reviewed sustainability assessment framework for ports: 84 indicators across 20 thematic areas aligned with eight SDGs, based on Cunha et al. (2025), Marine Policy.</p>
@@ -929,7 +931,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.82 0.10 85) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 30%, transparent);">🎯</div>
-              <span class="proj-cat">Sustainability &amp; SDGs</span>
+              <span class="proj-cat">Sustainability &amp; SDGs</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>Radar ODS: Municípios Sustentáveis</h3>
             <p class="desc">An interactive simulator of the Municipal Sustainability Index (ISM) for municipalities in Maranhão, Brazil, across SDGs 7, 11, 13, 14 and 17.</p>
@@ -944,7 +946,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">🔍</div>
-              <span class="proj-cat">Research &amp; Text Mining</span>
+              <span class="proj-cat">Research &amp; Text Mining</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>PDFWords: Text Mining for VOSviewer</h3>
             <p class="desc">Turns a set of PDFs into a word co-occurrence network for VOSviewer Online, detecting the most frequent terms automatically.</p>
@@ -959,7 +961,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.72 0.14 195) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.72 0.14 195) 30%, transparent);">📝</div>
-              <span class="proj-cat">Research &amp; Text Mining</span>
+              <span class="proj-cat">Research &amp; Text Mining</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 7</span>
             </div>
             <h3>PDFTerms: Controlled Vocabulary for VOSviewer</h3>
             <p class="desc">A directed text-mining tool with a controlled vocabulary: you define the keywords and the app counts their occurrences and co-occurrences across your PDFs.</p>
@@ -974,7 +976,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.68 0.16 155) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.68 0.16 155) 30%, transparent);">🔗</div>
-              <span class="proj-cat">Research &amp; Text Mining</span>
+              <span class="proj-cat">Research &amp; Text Mining</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>ResearchMatch with ORCID</h3>
             <p class="desc">Finds new potential collaborators aligned with any ORCID profile.</p>
@@ -989,14 +991,14 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, oklch(0.82 0.10 85) 15%, transparent); border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 30%, transparent);">🔬</div>
-              <span class="proj-cat">Research &amp; Text Mining</span>
+              <span class="proj-cat">Research &amp; Text Mining</span><span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">TRL 6</span>
             </div>
             <h3>ResearchMatch for Topic</h3>
             <p class="desc">Finds the leading researchers in any field.</p>
             <p class="desc">It searches paper titles and abstracts through OpenAlex, detects the dominant topics and ranks authors by a balance of subject relevance and scholarly impact (h-index). Identifies the key authors in a topic in seconds, replacing slow manual literature scanning.</p>
             <div class="chips"><span class="chip">OpenAlex</span><span class="chip">Bibliometrics</span><span class="chip">Expert discovery</span><span class="chip">Open data</span></div>
           </div>
-          <a class="proj-cta" href="https://researchmatchfortopic-znnz.vercel.app/" target="_blank" rel="noopener" style="border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 25%, transparent); color:oklch(0.82 0.10 85); background:color-mix(in oklch, oklch(0.82 0.10 85) 8%, transparent);" onmouseover="this.style.background='oklch(0.82 0.10 85)'; this.style.color='oklch(0.10 0.03 265)';" onmouseout="this.style.background='color-mix(in oklch, oklch(0.82 0.10 85) 8%, transparent)'; this.style.color='oklch(0.82 0.10 85)';">↗ Try the Tool</a>
+          <a class="proj-cta" href="https://researchmatchfortopic.vercel.app/" target="_blank" rel="noopener" style="border:1px solid color-mix(in oklch, oklch(0.82 0.10 85) 25%, transparent); color:oklch(0.82 0.10 85); background:color-mix(in oklch, oklch(0.82 0.10 85) 8%, transparent);" onmouseover="this.style.background='oklch(0.82 0.10 85)'; this.style.color='oklch(0.10 0.03 265)';" onmouseout="this.style.background='color-mix(in oklch, oklch(0.82 0.10 85) 8%, transparent)'; this.style.color='oklch(0.82 0.10 85)';">↗ Try the Tool</a>
           
         </div></div>
     </div>
@@ -1165,75 +1167,75 @@
        Campos opcionais: cta2Label + url2 -> botão secundário no card.
     */
     const projects = [
-      { emoji: "🌐", title: "Brazil Port Data", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Platform", url: "https://www.brazilportdata.com/",
+      { emoji: "🌐", title: "Brazil Port Data", trl: "TRL 7", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Platform", url: "https://www.brazilportdata.com/",
         description: "A research and data hub connecting international stakeholders to structured data, analytics and sustainability insights on the Brazilian port sector.",
         longDescription: "It brings together cargo dashboards (ANTAQ 2010 to 2026), an open dataset with DOI, the SDG Port Hub, the CO₂ calculator, AI tools and a curated set of publications. For port authorities, investors, maritime organisations and researchers needing reliable Brazilian port intelligence.",
         tags: ["Port sector", "Data hub", "Sustainability", "Analytics"] },
-      { emoji: "🚢", title: "Brazil Vessel Call Intelligence", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Platform", url: "https://brazil-vessel-call-intelligence.vercel.app/",
+      { emoji: "🚢", title: "Brazil Vessel Call Intelligence", trl: "TRL 7", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Platform", url: "https://brazil-vessel-call-intelligence.vercel.app/",
         description: "An IMO-based analytics platform covering 30,972 port calls and 8,505 unique vessels (2019 to 2025) at Itaguaí, Itaqui and Paranaguá, expanding to the top 20 Brazilian ports.",
         longDescription: "Five modules: fleet profile, vessel search, port-call analytics, at-berth CO₂ with OPS-avoidable emissions and EU ETS exposure, and data quality. Validated against verified EU MRV data, it is the only public source of harmonised vessel-level emissions data for Brazilian ports.",
         tags: ["Port analytics", "IMO data", "CO₂ emissions", "EU ETS", "Decarbonisation"] },
-      { emoji: "⚓", title: "BerthCO₂", category: "Port Analytics", accent: "oklch(0.72 0.20 195)", ctaLabel: "Calculate Emissions", url: "https://www.decarbport.com/",
+      { emoji: "⚓", title: "BerthCO₂", trl: "TRL 7", category: "Port Analytics", accent: "oklch(0.72 0.20 195)", ctaLabel: "Calculate Emissions", url: "https://www.decarbport.com/",
         description: "Calculates CO₂ emissions from liquid bulk vessels' auxiliary engines during the port stay, following IMO methodology (Fourth IMO GHG Study 2020, MEPC.282(70), MEPC.391(81)).",
         longDescription: "Enter vessel data, cargo type and berthing times to obtain emissions in tonnes, CO₂ equivalent and a carbon-credit reference value. Supports OPS feasibility assessment and port decarbonisation planning.",
         tags: ["Decarbonisation", "IMO GHG Study", "Port sector"] },
-      { emoji: "🌬️", title: "Shipping Methane Monitor", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "Explore Emissions Data", url: "https://shipping-methane-monitor.vercel.app/",
+      { emoji: "🌬️", title: "Shipping Methane Monitor", trl: "TRL 6", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "Explore Emissions Data", url: "https://shipping-methane-monitor.vercel.app/",
         description: "First fleet-scale analysis of the new greenhouse-gas fields in the EU MRV 2024 dataset: verified CH₄ and N₂O emissions of 14,115 vessels.",
         longDescription: "It shows that 355 LNG carriers emit 62.6% of all verified methane (the methane-slip signature) and that, fleet-wide, N₂O adds more warming than CH₄.",
         tags: ["EU MRV", "Methane", "GHG emissions", "LNG", "Decarbonisation"] },
-      { emoji: "💸", title: "Shipping Carbon Costs: EU ETS Ranking", category: "Port Analytics", accent: "oklch(0.82 0.10 85)", ctaLabel: "Explore Rankings", url: "https://shipping-carbon-costs.vercel.app/",
+      { emoji: "💸", title: "Shipping Carbon Costs: EU ETS Ranking", trl: "TRL 6", category: "Port Analytics", accent: "oklch(0.82 0.10 85)", ctaLabel: "Explore Rankings", url: "https://shipping-carbon-costs.vercel.app/",
         description: "Ranks 3,303 shipping companies by their EU ETS carbon cost, built on the verified EU MRV 2024 dataset (12,610 ships, 87.3 Mt of ETS-scoped CO₂).",
         longDescription: "At €80 per allowance the maritime ETS bill reaches €6.99 billion a year, with the top 10 companies carrying 21.5%. Answers who actually pays for shipping's carbon.",
         tags: ["EU ETS", "Regulatory analytics", "Decarbonisation"] },
-      { emoji: "🛰️", title: "EU Ports NO₂: Seen From Space", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "View Satellite Data", url: "https://eu-ports-no2.vercel.app/",
+      { emoji: "🛰️", title: "EU Ports NO₂: Seen From Space", trl: "TRL 6", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "View Satellite Data", url: "https://eu-ports-no2.vercel.app/",
         description: "Uses Copernicus Sentinel-5P satellite data (2024 annual mean) to map NO₂ enhancement over 17 European ports and shipping lanes.",
         longDescription: "The Strait of Gibraltar lane shows +53.5% more NO₂ than the surrounding sea with no city in sight. An independent, space-based check on ship emission estimates.",
         tags: ["Remote sensing", "Sentinel-5P", "Air quality"] },
-      { emoji: "🛥️", title: "Vessel Gigantism", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Trends", url: "https://vessel-gigantism.vercel.app/",
+      { emoji: "🛥️", title: "Vessel Gigantism", trl: "TRL 6", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Explore Trends", url: "https://vessel-gigantism.vercel.app/",
         description: "Traces three decades of the “fewer ships, bigger ships” trend in European ports using official Eurostat data.",
         longDescription: "Across the EU-27, average container-ship size per call rose 2.3 times while arrivals fell 19%. Select any ports and ship type to compare vessel upsizing over thirty years.",
         tags: ["Eurostat", "Data analysis", "Maritime statistics"] },
-      { emoji: "🐍", title: "maritimeco2: Python Library", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "View on Zenodo", url: "https://zenodo.org/records/20708090",
+      { emoji: "🐍", title: "maritimeco2: Python Library", trl: "TRL 7", category: "Port Analytics", accent: "oklch(0.68 0.16 155)", ctaLabel: "View on Zenodo", url: "https://zenodo.org/records/20708090",
         description: "Open, citable Python library (DOI, tests, v0.1.0 release) estimating OPS-avoidable at-berth CO₂ for liquid bulk vessels, following the IMO Fourth GHG Study 2020 method.",
         longDescription: "The engine behind BerthCO₂. Published on Zenodo with a citable DOI, full test suite and versioned release, making it reusable and auditable for port decarbonisation research.",
         tags: ["Python", "Open source", "Emissions modelling"] },
-      { emoji: "🤖", title: "port-emissions-mcp: Claude MCP Server", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "View on GitHub", url: "https://github.com/darlianecunha/port-emissions-mcp",
+      { emoji: "🤖", title: "port-emissions-mcp: Claude MCP Server", trl: "TRL 5", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "View on GitHub", url: "https://github.com/darlianecunha/port-emissions-mcp",
         description: "A Model Context Protocol (MCP) server that lets Claude answer questions about 247 Brazilian port installations and estimate at-berth CO₂, citing the source and method behind every number.",
         longDescription: "Six tools for Claude: search installations, year-by-year port profiles (cargo, berthings, waiting and berthing times), port rankings, at-berth CO₂ for one or many tanker calls via maritimeco2, and a method explainer. Downloads the open Brazil Port Data dataset from Zenodo and ships with automated tests.",
         tags: ["Applied AI", "Claude", "MCP", "LLM tools", "Open source"] },
-      { emoji: "📦", title: "Brazil Port Data: Open Dataset", category: "Port Analytics", accent: "oklch(0.82 0.10 85)", ctaLabel: "View on Zenodo", url: "https://doi.org/10.5281/zenodo.23158267",
+      { emoji: "📦", title: "Brazil Port Data: Open Dataset", trl: "Open data · ODbL", category: "Port Analytics", accent: "oklch(0.82 0.10 85)", ctaLabel: "View on Zenodo", url: "https://doi.org/10.5281/zenodo.23158267",
         description: "Consolidated ANTAQ port statistics for 247 Brazilian installations, 2010 to 2026: annual cargo by navigation type, berthings and mean port times, with a citable DOI.",
         longDescription: "Aggregated with the same movement filter as ANTAQ's public panel, so national totals match the official figures. Released under the Open Database License (ODbL) for researchers, students and analysts who need comparable series by port.",
         tags: ["Open data", "ANTAQ", "Port statistics", "Zenodo DOI"] },
-      { emoji: "🇪🇺", title: "European Port Traffic Explorer", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Traffic Data", url: "https://port-traffic-explorer.vercel.app/",
+      { emoji: "🇪🇺", title: "European Port Traffic Explorer", trl: "TRL 6", category: "Port Analytics", accent: "oklch(0.65 0.18 230)", ctaLabel: "Explore Traffic Data", url: "https://port-traffic-explorer.vercel.app/",
         description: "Interactive comparison of annual vessel arrivals at 15 major European ports by ship type and size class, built on official Eurostat statistics (2019 to present).",
         longDescription: "Select any set of ports and compare fleet mix, size profile and traffic evolution, switching between arrivals and gross tonnage. Replaces manual extraction from the Eurostat database with a one-click comparison.",
         tags: ["Eurostat", "Port analytics", "Fleet mix", "Maritime statistics"] },
-      { emoji: "🟦", title: "BluePort", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Assistant", url: "https://blue-port-ia.vercel.app/",
+      { emoji: "🟦", title: "BluePort", trl: "TRL 5", category: "Port Analytics", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Assistant", url: "https://blue-port-ia.vercel.app/",
         description: "A computer-vision assistant that classifies port and marine waste into six categories from a single photo, delivered through a live Telegram bot.",
         longDescription: "Send a photo and receive the category, a confidence score and disposal guidance in seconds, with logs that support compliance reporting. Built with Python, CLIP and the Telegram Bot API; it grew out of an Omdena AI project on the Ganges river.",
         tags: ["Computer vision", "Sustainability", "Operational workflow"] },
-      { emoji: "📊", title: "SDG Attributes", category: "Sustainability & SDGs", accent: "oklch(0.68 0.16 155)", ctaLabel: "View Indicators", url: "https://sdg-port-hub-sable.vercel.app/",
+      { emoji: "📊", title: "SDG Attributes", trl: "TRL 7", category: "Sustainability & SDGs", accent: "oklch(0.68 0.16 155)", ctaLabel: "View Indicators", url: "https://sdg-port-hub-sable.vercel.app/",
         description: "A peer-reviewed sustainability assessment framework for ports: 84 indicators across 20 thematic areas aligned with eight SDGs, based on Cunha et al. (2025), Marine Policy.",
         longDescription: "The interactive simulation tool turns the framework into an instant self-assessment: score each indicator from 1 to 4 and read the overall score and performance level in real time, in English or Portuguese.",
         tags: ["Indicators", "SDGs", "Data management"] },
-      { emoji: "🎯", title: "Radar ODS: Municípios Sustentáveis", category: "Sustainability & SDGs", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Demo", url: "https://radarods.vercel.app/", cta2Label: "View Proposal", url2: "https://propostaufmacidadessustentaveis.vercel.app/",
+      { emoji: "🎯", title: "Radar ODS: Municípios Sustentáveis", trl: "TRL 6", category: "Sustainability & SDGs", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Demo", url: "https://radarods.vercel.app/", cta2Label: "View Proposal", url2: "https://propostaufmacidadessustentaveis.vercel.app/",
         description: "An interactive simulator of the Municipal Sustainability Index (ISM) for municipalities in Maranhão, Brazil, across SDGs 7, 11, 13, 14 and 17.",
         longDescription: "It converts official open data (IBGE, ANEEL, CEMADEN, MapBiomas and others) into maturity scores from 1 to 5 and shows how indicator improvements change the index, including which funding calls each level unlocks. Developed at UFMA, Portuguese interface.",
         tags: ["SDGs", "Municipal sustainability", "ISM methodology", "Open data", "AI"] },
-      { emoji: "🔍", title: "PDFWords: Text Mining for VOSviewer", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://text-umber-delta.vercel.app/",
+      { emoji: "🔍", title: "PDFWords: Text Mining for VOSviewer", trl: "TRL 7", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://text-umber-delta.vercel.app/",
         description: "Turns a set of PDFs into a word co-occurrence network for VOSviewer Online, detecting the most frequent terms automatically.",
         longDescription: "Text is extracted entirely in the browser, with Portuguese and English stopwords removed and nothing sent to a server. Automates the creation of co-occurrence maps for bibliometric and literature reviews.",
         tags: ["Text Mining", "Bibliometrics", "VOSviewer", "NLP"] },
-      { emoji: "📝", title: "PDFTerms: Controlled Vocabulary for VOSviewer", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://textmining2.vercel.app/",
+      { emoji: "📝", title: "PDFTerms: Controlled Vocabulary for VOSviewer", trl: "TRL 7", category: "Research & Text Mining", accent: "oklch(0.72 0.14 195)", ctaLabel: "Try the Tool", url: "https://textmining2.vercel.app/",
         description: "A directed text-mining tool with a controlled vocabulary: you define the keywords and the app counts their occurrences and co-occurrences across your PDFs.",
         longDescription: "Supports grouped synonyms, compound terms, wildcards and thematic categories. It exports a VOSviewer-ready network and complements PDFWords, which detects terms automatically. All processing runs locally in the browser.",
         tags: ["Text Mining", "VOSviewer", "Controlled vocabulary", "Bibliometrics", "NLP"] },
-      { emoji: "🔗", title: "ResearchMatch with ORCID", category: "Research & Text Mining", accent: "oklch(0.68 0.16 155)", ctaLabel: "Try the Tool", url: "https://researchmatch-chi.vercel.app/",
+      { emoji: "🔗", title: "ResearchMatch with ORCID", trl: "TRL 6", category: "Research & Text Mining", accent: "oklch(0.68 0.16 155)", ctaLabel: "Try the Tool", url: "https://researchmatch-chi.vercel.app/",
         description: "Finds new potential collaborators aligned with any ORCID profile.",
         longDescription: "Matching uses topic-vector (cosine) similarity over the profile's OpenAlex topics, and existing co-authors are excluded, so the results are genuinely new contacts. Open data, no paywalls or institutional access required.",
         tags: ["ORCID", "OpenAlex", "Collaboration", "Open data"] },
-      { emoji: "🔬", title: "ResearchMatch for Topic", category: "Research & Text Mining", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Tool", url: "https://researchmatchfortopic-znnz.vercel.app/",
+      { emoji: "🔬", title: "ResearchMatch for Topic", trl: "TRL 6", category: "Research & Text Mining", accent: "oklch(0.82 0.10 85)", ctaLabel: "Try the Tool", url: "https://researchmatchfortopic.vercel.app/",
         description: "Finds the leading researchers in any field.",
         longDescription: "It searches paper titles and abstracts through OpenAlex, detects the dominant topics and ranks authors by a balance of subject relevance and scholarly impact (h-index). Identifies the key authors in a topic in seconds, replacing slow manual literature scanning.",
         tags: ["OpenAlex", "Bibliometrics", "Expert discovery", "Open data"] },
@@ -1333,7 +1335,7 @@
           <div class="proj-body">
             <div class="proj-top">
               <div class="proj-emoji" style="background:color-mix(in oklch, ${p.accent} 15%, transparent); border:1px solid color-mix(in oklch, ${p.accent} 30%, transparent);">${p.emoji}</div>
-              <span class="proj-cat">${esc(p.category)}</span>
+              <span class="proj-cat">${esc(p.category)}</span>${p.trl ? `<span class="proj-trl" title="Technology Readiness Level (EU scale 1 to 9)">${esc(p.trl)}</span>` : ""}
             </div>
             <h3>${esc(p.title)}</h3>
             <p class="desc">${esc(p.description)}</p>
