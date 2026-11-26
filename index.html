@@ -2,17 +2,17 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Darliane Cunha | Port &amp; Maritime Decarbonisation Data Scientist</title>
-  <meta name="description" content="Data scientist and researcher in port and maritime decarbonisation, ESG text mining and SDG indicators. PhD, 19 peer-reviewed publications.">
+  <title>Darliane Cunha | Port &amp; Maritime Decarbonisation Researcher</title>
+  <meta name="description" content="Researcher in port and maritime decarbonisation, ESG text mining and SDG indicators. PhD, 18 peer-reviewed articles.">
   <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Darliane Cunha | Port &amp; Maritime Decarbonisation Data Scientist">
+  <meta property="og:title" content="Darliane Cunha | Port &amp; Maritime Decarbonisation Researcher">
   <meta property="og:description" content="Emissions inventories, ESG analytics and SDG indicators for ports. PhD, 20+ years of research, open-source tools and data for maritime decarbonisation.">
   <meta property="og:image" content="https://ribeirocunha.com/profile-photo.webp">
-  <meta name="twitter:title" content="Darliane Cunha | Port &amp; Maritime Decarbonisation Data Scientist">
+  <meta name="twitter:title" content="Darliane Cunha | Port &amp; Maritime Decarbonisation Researcher">
   <meta name="twitter:description" content="Emissions inventories, ESG analytics and SDG indicators for ports. Open-source tools and data for maritime decarbonisation.">
   <meta name="twitter:image" content="https://ribeirocunha.com/profile-photo.webp">
   <link rel="canonical" href="https://ribeirocunha.com/">
@@ -29,8 +29,8 @@
     "alternateName": "Darliane Cunha",
     "url": "https://ribeirocunha.com/",
     "image": "https://ribeirocunha.com/profile-photo.webp",
-    "jobTitle": "Port & Maritime Decarbonisation Data Scientist",
-    "description": "Data scientist and researcher in port and maritime decarbonisation, ESG text mining and SDG indicators.",
+    "jobTitle": "Port & Maritime Decarbonisation Researcher",
+    "description": "Researcher in port and maritime decarbonisation, ESG text mining and SDG indicators.",
     "knowsAbout": ["Maritime decarbonisation", "Port emissions inventories", "EU ETS maritime", "ESG reporting", "Text mining", "Sustainable Development Goals", "Python", "Data analytics"],
     "alumniOf": [
       {"@type": "CollegeOrUniversity", "name": "University of Zaragoza"},
@@ -122,17 +122,23 @@
       position: relative; overflow: hidden;
       padding: 128px 0;
       background-color: oklch(0.11 0.04 265);
-      background-image:
-        radial-gradient(60% 90% at 88% 15%, oklch(0.72 0.14 195 / 22%) 0%, transparent 60%),
-        radial-gradient(50% 80% at 70% 95%, oklch(0.68 0.16 155 / 14%) 0%, transparent 65%),
-        repeating-linear-gradient(115deg, oklch(1 0 0 / 4%) 0px, oklch(1 0 0 / 4%) 1px, transparent 1px, transparent 22px);
-      background-size: cover, cover, auto;
+    }
+    /* Ocean gyre: animated canvas behind the hero text (script at the end of the page) */
+    .hero-gyre { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(28% 40% at var(--gx, 70%) var(--gy, 50%), oklch(0.85 0.10 195 / 16%) 0%, oklch(0.72 0.14 195 / 6%) 45%, transparent 75%);
     }
     .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(to right, oklch(0.10 0.04 265 / 92%) 0%, oklch(0.10 0.04 265 / 70%) 50%, oklch(0.10 0.04 265 / 20%) 100%);
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(to right, oklch(0.10 0.04 265 / 94%) 0%, oklch(0.10 0.04 265 / 60%) 40%, oklch(0.10 0.04 265 / 0%) 65%);
     }
-    .hero-content { position: relative; max-width: 640px; }
+    .hero > .container { position: relative; z-index: 2; pointer-events: none; }
+    .hero-content { position: relative; max-width: 640px; pointer-events: auto; }
+    @media (max-width: 720px) {
+      .hero { padding-bottom: 280px; }
+      .hero::before { background: linear-gradient(to bottom, oklch(0.10 0.04 265 / 92%) 0%, oklch(0.10 0.04 265 / 55%) 60%, oklch(0.10 0.04 265 / 0%) 80%); }
+    }
     .badge {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--label); font-size: 0.875rem; font-weight: 500;
@@ -309,13 +315,15 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="home">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <canvas class="hero-gyre" aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content">
         <div class="badge"><span class="dot"></span> Open to research &amp; industry collaborations</div>
         <h1>Darliane Cunha</h1>
         <p class="hero-sub">
-          Port &amp; Maritime Decarbonisation Data Scientist · Emissions inventories, ESG analytics and SDG indicators for ports
-          <span class="pill">PhD · 20+ Years of Research</span>
+          Port &amp; Maritime Decarbonisation Researcher · Emissions inventories, ESG analytics and SDG indicators for ports
+          <span class="pill">PhD · Full Professor, UFMA · Postdoc, Erasmus University Rotterdam</span>
           <span class="pill">Google Scholar · h-11 · 354 citations</span>
         </p>
         <div class="btn-row">
@@ -339,7 +347,7 @@
         </div>
         <div class="about-text">
           <h2 class="section-title" style="margin-bottom:24px;">About Me</h2>
-          <p>I am a researcher passionate about technology, data, and sustainability, working at the intersection of AI, digital innovation, and environmental performance. I have led high-impact research at a Brazilian public university, applying data-driven approaches to real-world sustainability challenges.</p>
+          <p>I research how ports and shipping can decarbonise, building emissions inventories, open datasets and analytics that show where action pays off first. At the Port of Itaqui, for example, my work estimates that shore power could cut at-berth CO₂ by up to 84%, with three berths producing about 63% of it. I am a Full Professor at the Federal University of Maranhão (UFMA), Brazil, where I have led research on port sustainability, ESG reporting and SDG indicators since 2010, and I completed a postdoctoral fellowship at Erasmus University Rotterdam in 2024–2025.</p>
           <p>My work spans academic research, applied tool development, and strategic consulting, combining rigorous quantitative methods with practical implementation across port infrastructure, sustainability reporting, and digital transformation.</p>
           <p style="margin-bottom:0;">I am currently seeking opportunities in research institutions, international organisations, and innovative companies where I can apply my expertise in AI, sustainability analytics, and data-driven decision-making to create lasting environmental and organisational impact.</p>
           <div class="about-meta">📍 Available for remote and international positions</div>
@@ -386,6 +394,13 @@
         <div>
           <p class="rec-title">1st Place, Academic Production</p>
           <p class="rec-org">Porto do Itaqui Prize (Inova Itaqui), EMAP Port Authority with FAPEMA</p>
+        </div>
+      </div>
+      <div class="rec-item">
+        <span class="rec-year">2026</span>
+        <div>
+          <p class="rec-title">Best Paper</p>
+          <p class="rec-org">National Congress Integra Portos (CNIT), Brazil</p>
         </div>
       </div>
       <div class="rec-item">
@@ -465,7 +480,7 @@
       <div class="area-card" style="border:1px solid color-mix(in oklch, var(--primary) 25%, transparent);">
         <div class="icon-box" style="background:color-mix(in oklch, var(--primary) 15%, transparent); color:var(--primary); margin-bottom:16px;">🧠</div>
         <h3>AI &amp; Data Analytics</h3>
-        <p>Leveraging artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes.</p>
+        <p>Using artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes.</p>
       </div>
       <div class="area-card" style="border:1px solid color-mix(in oklch, var(--accent) 25%, transparent);">
         <div class="icon-box" style="background:color-mix(in oklch, var(--accent) 15%, transparent); color:var(--accent); margin-bottom:16px;">📈</div>
@@ -698,7 +713,7 @@
         
       </div>
       <div class="pub-card">
-        <h4>Tópicos Estratégicos Portuários — Volume 1</h4>
+        <h4>Tópicos Estratégicos Portuários, Volume 1</h4>
         <p class="pub-meta">Book Chapter · 2023</p>
         <p>Covers strategic topics in port management, including logistics efficiency, regulatory frameworks, and sustainability integration in Brazilian port policy.</p>
         <div class="pub-tags">
@@ -708,7 +723,7 @@
         
       </div>
       <div class="pub-card">
-        <h4>Tópicos Estratégicos Portuários — Volume 2</h4>
+        <h4>Tópicos Estratégicos Portuários, Volume 2</h4>
         <p class="pub-meta">Book Chapter · 2024</p>
         <p>Continues the strategic analysis of port sector challenges, focusing on digital transformation, environmental compliance, and innovation in port governance.</p>
         <div class="pub-tags">
@@ -1052,7 +1067,7 @@
           <div id="looking">
       <div class="look-card" style="border:1px solid color-mix(in oklch, var(--primary) 20%, transparent);">
         <p class="t" style="color:var(--primary);">Research Positions</p>
-        <p class="d">Postdoctoral, senior researcher, or research scientist roles in sustainability, AI, or data analytics.</p>
+        <p class="d">Senior researcher, research scientist or principal investigator roles in sustainability, AI, or data analytics.</p>
       </div>
       <div class="look-card" style="border:1px solid color-mix(in oklch, var(--accent) 20%, transparent);">
         <p class="t" style="color:var(--accent);">Industry Collaborations</p>
@@ -1073,7 +1088,7 @@
     <div class="container wrap">
       <div class="foot-inner">
         <p class="foot-name">Darliane Cunha</p>
-        <p class="foot-copy">© <span id="year">2026</span> Darliane Ribeiro Cunha · Port &amp; Maritime Decarbonisation Data Scientist</p>
+        <p class="foot-copy">© <span id="year">2026</span> Darliane Ribeiro Cunha · Port &amp; Maritime Decarbonisation Researcher</p>
         <div class="foot-links">
           <a href="#about">About</a>
           <a href="#publications">Publications</a>
@@ -1109,7 +1124,7 @@
     /* ---------- ÁREAS DE PESQUISA ---------- */
     const areas = [
       { title: "Sustainability & Environment", icon: "🌐", color: "var(--gold)", desc: "Addressing real-world environmental challenges through research on sustainability frameworks, SDG implementation, port infrastructure, and decarbonisation strategies across sectors." },
-      { title: "AI & Data Analytics", icon: "🧠", color: "var(--primary)", desc: "Leveraging artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes." },
+      { title: "AI & Data Analytics", icon: "🧠", color: "var(--primary)", desc: "Using artificial intelligence and advanced data analytics to extract insights from complex environmental datasets, develop predictive models, and improve evidence-based decision-making processes." },
       { title: "Digital Innovation", icon: "📈", color: "var(--accent)", desc: "Exploring how digital technologies, from smart sensors to dashboards and AI-powered tools, can transform sustainability reporting, measurement, and organisational practices at scale." },
     ];
 
@@ -1119,6 +1134,8 @@
     const awards = [
       { year: "2026", title: "1st Place, Academic Production",
         org: "Porto do Itaqui Prize (Inova Itaqui), EMAP Port Authority with FAPEMA" },
+      { year: "2026", title: "Best Paper",
+        org: "National Congress Integra Portos (CNIT), Brazil" },
       { year: "2025", title: "1st Place, Best Paper",
         org: "3rd National Congress Integra Portos (CNIT), Brazil, on at-berth CO₂ emissions at the Port of Itaqui" },
       { year: "2025–2026", title: "Outstanding Researcher Award",
@@ -1158,8 +1175,8 @@
     const bookChapters = [
       { title: "Technology as a Catalyst for Sustainable Port Operations in Brazil", journal: "Evidence and Action on the UNSDGs: Reviews and Case Studies", year: "2026", abstract: "Examines how emerging technologies, including AI, IoT, and data analytics, are driving sustainability transitions in Brazilian port operations, with evidence from leading port cases.", tags: ["Technology", "Sustainability", "Brazil"], index: ["Scopus"], doi: "https://doi.org/10.1108/978-1-83662-602-220261004" },
       { title: "Manifesto ESG Portuário", journal: "Book Chapter", year: "2024", abstract: "Proposes an ESG manifesto for the port sector, articulating principles and commitments for environmental, social, and governance performance in port operations.", tags: ["ESG", "Ports", "Governance"], index: [] },
-      { title: "Tópicos Estratégicos Portuários — Volume 1", journal: "Book Chapter", year: "2023", abstract: "Covers strategic topics in port management, including logistics efficiency, regulatory frameworks, and sustainability integration in Brazilian port policy.", tags: ["Strategy", "Ports", "Brazil"], index: [] },
-      { title: "Tópicos Estratégicos Portuários — Volume 2", journal: "Book Chapter", year: "2024", abstract: "Continues the strategic analysis of port sector challenges, focusing on digital transformation, environmental compliance, and innovation in port governance.", tags: ["Digital", "Innovation", "Governance"], index: [] },
+      { title: "Tópicos Estratégicos Portuários, Volume 1", journal: "Book Chapter", year: "2023", abstract: "Covers strategic topics in port management, including logistics efficiency, regulatory frameworks, and sustainability integration in Brazilian port policy.", tags: ["Strategy", "Ports", "Brazil"], index: [] },
+      { title: "Tópicos Estratégicos Portuários, Volume 2", journal: "Book Chapter", year: "2024", abstract: "Continues the strategic analysis of port sector challenges, focusing on digital transformation, environmental compliance, and innovation in port governance.", tags: ["Digital", "Innovation", "Governance"], index: [] },
     ];
 
     /* ---------- PROJETOS (Portfolio) ----------
@@ -1251,7 +1268,7 @@
 
     /* ---------- O QUE PROCURO ---------- */
     const looking = [
-      { title: "Research Positions", desc: "Postdoctoral, senior researcher, or research scientist roles in sustainability, AI, or data analytics.", color: "var(--primary)" },
+      { title: "Research Positions", desc: "Senior researcher, research scientist or principal investigator roles in sustainability, AI, or data analytics.", color: "var(--primary)" },
       { title: "Industry Collaborations", desc: "Consulting, advisory, or project-based work with organisations tackling sustainability and digital transformation.", color: "var(--accent)" },
       { title: "International Projects", desc: "EU-funded research projects, UN initiatives, or cross-border programmes in environmental performance.", color: "var(--gold)" },
     ];
@@ -1388,4 +1405,92 @@
   </script>
 
 
+<script>
+/* Ocean gyre hero: thousands of light trails circling like an ocean current; the cursor stirs a counter-eddy. */
+(() => {
+  const hero = document.querySelector('.hero');
+  const cv = hero.querySelector('.hero-gyre');
+  const ctx = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // palette: teal core, emerald body, gold rim (site tokens)
+  const COLS = [[190, 250, 250], [70, 210, 220], [44, 170, 200], [226, 196, 125], [222, 122, 60]];
+  let W, H, dpr, cx, cy, R, parts = [], mouse = { x: -9999, y: -9999, k: 0 }, t = 0;
+
+  function reset(p, anywhere) {
+    const a = Math.random() * Math.PI * 2;
+    const r = anywhere ? Math.sqrt(Math.random()) * R * 1.15 : R * (.85 + Math.random() * .35);
+    p.x = cx + Math.cos(a) * r; p.y = cy + Math.sin(a) * r * .92;
+    p.life = 200 + Math.random() * 500; p.age = 0;
+  }
+
+  function layout() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const mobile = W < 720;
+    cx = mobile ? W * .5 : W * .7; cy = mobile ? H * .78 : H * .5;
+    R = Math.min(mobile ? W * .55 : W * .34, H * (mobile ? .4 : .62));
+    const n = Math.round((mobile ? 900 : 2200) * Math.min(1, (W * H) / (1440 * 700) + .3));
+    parts = Array.from({ length: n }, () => { const p = {}; reset(p, true); p.age = Math.random() * p.life; return p; });
+    ctx.clearRect(0, 0, W, H);
+    hero.style.setProperty('--gx', (cx / W * 100) + '%'); hero.style.setProperty('--gy', (cy / H * 100) + '%');
+    for (let i = 0; i < 160; i++) step(1 / 60, i > 100);   // pre-warm so the first paint is already a gyre
+    if (reduce) { for (let i = 0; i < 220; i++) step(1 / 60, true); }
+  }
+
+  function field(x, y) {
+    const dx = x - cx, dy = (y - cy) / .92, r = Math.hypot(dx, dy) + 1e-3, nr = r / R;
+    // tangential swirl, faster towards the core; slight inward drift
+    const sw = 1.6 * Math.exp(-nr * 1.1) + .35;
+    let vx = (-dy / r) * sw - (dx / r) * .18 * nr;
+    let vy = (dx / r) * sw - (dy / r) * .18 * nr;
+    // soft turbulence, like eddies in a current
+    const n = Math.sin(x * .006 + t * .35) * Math.cos(y * .007 - t * .25) + Math.sin((x + y) * .0035 + t * .2);
+    vx += Math.cos(n * 2.2) * .35; vy += Math.sin(n * 2.2) * .35;
+    // the cursor stirs the water: a local counter-eddy
+    const mx = x - mouse.x, my = y - mouse.y, md2 = mx * mx + my * my, s = mouse.k * 9000 / (md2 + 4000);
+    vx += (my) * s * .02; vy += (-mx) * s * .02;
+    return [vx, vy, nr];
+  }
+
+  function step(dt, draw) {
+    // long-exposure fade
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,0.045)'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineWidth = 1.6;
+    const sp = 110 * dt * (R / 260);
+    for (const p of parts) {
+      const [vx, vy, nr] = field(p.x, p.y);
+      const nx = p.x + vx * sp, ny = p.y + vy * sp;
+      if (draw) {
+        const c = COLS[Math.min(4, Math.floor(nr * 3.4 + (p.life % 7) / 14))];
+        const fade = Math.sin(Math.PI * p.age / p.life);
+        ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${(.22 + .38 * (1 - Math.min(nr, 1))) * fade})`;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(nx, ny); ctx.stroke();
+      }
+      p.x = nx; p.y = ny; p.age++;
+      if (p.age > p.life || nr > 1.5) reset(p, Math.random() < .7);
+    }
+    t += dt;
+    mouse.k *= .96;
+  }
+
+  let last = 0;
+  function frame(now) {
+    const dt = Math.min(.033, (now - last) / 1000 || .016); last = now;
+    step(dt, true);
+    requestAnimationFrame(frame);
+  }
+
+  hero.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.k = Math.min(1.4, mouse.k + .12);
+  });
+  new ResizeObserver(layout).observe(hero);
+  layout();
+  if (!reduce) requestAnimationFrame(frame);
+})();
+</script>
 </body></html>
