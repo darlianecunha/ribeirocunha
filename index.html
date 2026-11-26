@@ -122,17 +122,23 @@
       position: relative; overflow: hidden;
       padding: 128px 0;
       background-color: oklch(0.11 0.04 265);
-      background-image:
-        radial-gradient(60% 90% at 88% 15%, oklch(0.72 0.14 195 / 22%) 0%, transparent 60%),
-        radial-gradient(50% 80% at 70% 95%, oklch(0.68 0.16 155 / 14%) 0%, transparent 65%),
-        repeating-linear-gradient(115deg, oklch(1 0 0 / 4%) 0px, oklch(1 0 0 / 4%) 1px, transparent 1px, transparent 22px);
-      background-size: cover, cover, auto;
+    }
+    /* Ocean gyre: animated canvas behind the hero text (script at the end of the page) */
+    .hero-gyre { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(28% 40% at var(--gx, 70%) var(--gy, 50%), oklch(0.85 0.10 195 / 16%) 0%, oklch(0.72 0.14 195 / 6%) 45%, transparent 75%);
     }
     .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(to right, oklch(0.10 0.04 265 / 92%) 0%, oklch(0.10 0.04 265 / 70%) 50%, oklch(0.10 0.04 265 / 20%) 100%);
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(to right, oklch(0.10 0.04 265 / 94%) 0%, oklch(0.10 0.04 265 / 60%) 40%, oklch(0.10 0.04 265 / 0%) 65%);
     }
-    .hero-content { position: relative; max-width: 640px; }
+    .hero > .container { position: relative; z-index: 2; pointer-events: none; }
+    .hero-content { position: relative; max-width: 640px; pointer-events: auto; }
+    @media (max-width: 720px) {
+      .hero { padding-bottom: 280px; }
+      .hero::before { background: linear-gradient(to bottom, oklch(0.10 0.04 265 / 92%) 0%, oklch(0.10 0.04 265 / 55%) 60%, oklch(0.10 0.04 265 / 0%) 80%); }
+    }
     .badge {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--label); font-size: 0.875rem; font-weight: 500;
@@ -309,6 +315,8 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="home">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <canvas class="hero-gyre" aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content">
         <div class="badge"><span class="dot"></span> Open to research &amp; industry collaborations</div>
@@ -1397,4 +1405,92 @@
   </script>
 
 
+<script>
+/* Ocean gyre hero: thousands of light trails circling like an ocean current; the cursor stirs a counter-eddy. */
+(() => {
+  const hero = document.querySelector('.hero');
+  const cv = hero.querySelector('.hero-gyre');
+  const ctx = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // palette: teal core, emerald body, gold rim (site tokens)
+  const COLS = [[190, 250, 250], [70, 210, 220], [44, 170, 200], [226, 196, 125], [222, 122, 60]];
+  let W, H, dpr, cx, cy, R, parts = [], mouse = { x: -9999, y: -9999, k: 0 }, t = 0;
+
+  function reset(p, anywhere) {
+    const a = Math.random() * Math.PI * 2;
+    const r = anywhere ? Math.sqrt(Math.random()) * R * 1.15 : R * (.85 + Math.random() * .35);
+    p.x = cx + Math.cos(a) * r; p.y = cy + Math.sin(a) * r * .92;
+    p.life = 200 + Math.random() * 500; p.age = 0;
+  }
+
+  function layout() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const mobile = W < 720;
+    cx = mobile ? W * .5 : W * .7; cy = mobile ? H * .78 : H * .5;
+    R = Math.min(mobile ? W * .55 : W * .34, H * (mobile ? .4 : .62));
+    const n = Math.round((mobile ? 900 : 2200) * Math.min(1, (W * H) / (1440 * 700) + .3));
+    parts = Array.from({ length: n }, () => { const p = {}; reset(p, true); p.age = Math.random() * p.life; return p; });
+    ctx.clearRect(0, 0, W, H);
+    hero.style.setProperty('--gx', (cx / W * 100) + '%'); hero.style.setProperty('--gy', (cy / H * 100) + '%');
+    for (let i = 0; i < 160; i++) step(1 / 60, i > 100);   // pre-warm so the first paint is already a gyre
+    if (reduce) { for (let i = 0; i < 220; i++) step(1 / 60, true); }
+  }
+
+  function field(x, y) {
+    const dx = x - cx, dy = (y - cy) / .92, r = Math.hypot(dx, dy) + 1e-3, nr = r / R;
+    // tangential swirl, faster towards the core; slight inward drift
+    const sw = 1.6 * Math.exp(-nr * 1.1) + .35;
+    let vx = (-dy / r) * sw - (dx / r) * .18 * nr;
+    let vy = (dx / r) * sw - (dy / r) * .18 * nr;
+    // soft turbulence, like eddies in a current
+    const n = Math.sin(x * .006 + t * .35) * Math.cos(y * .007 - t * .25) + Math.sin((x + y) * .0035 + t * .2);
+    vx += Math.cos(n * 2.2) * .35; vy += Math.sin(n * 2.2) * .35;
+    // the cursor stirs the water: a local counter-eddy
+    const mx = x - mouse.x, my = y - mouse.y, md2 = mx * mx + my * my, s = mouse.k * 9000 / (md2 + 4000);
+    vx += (my) * s * .02; vy += (-mx) * s * .02;
+    return [vx, vy, nr];
+  }
+
+  function step(dt, draw) {
+    // long-exposure fade
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,0.045)'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineWidth = 1.6;
+    const sp = 110 * dt * (R / 260);
+    for (const p of parts) {
+      const [vx, vy, nr] = field(p.x, p.y);
+      const nx = p.x + vx * sp, ny = p.y + vy * sp;
+      if (draw) {
+        const c = COLS[Math.min(4, Math.floor(nr * 3.4 + (p.life % 7) / 14))];
+        const fade = Math.sin(Math.PI * p.age / p.life);
+        ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${(.22 + .38 * (1 - Math.min(nr, 1))) * fade})`;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(nx, ny); ctx.stroke();
+      }
+      p.x = nx; p.y = ny; p.age++;
+      if (p.age > p.life || nr > 1.5) reset(p, Math.random() < .7);
+    }
+    t += dt;
+    mouse.k *= .96;
+  }
+
+  let last = 0;
+  function frame(now) {
+    const dt = Math.min(.033, (now - last) / 1000 || .016); last = now;
+    step(dt, true);
+    requestAnimationFrame(frame);
+  }
+
+  hero.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.k = Math.min(1.4, mouse.k + .12);
+  });
+  new ResizeObserver(layout).observe(hero);
+  layout();
+  if (!reduce) requestAnimationFrame(frame);
+})();
+</script>
 </body></html>
